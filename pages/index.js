@@ -4,6 +4,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
+import { RoughNotation } from 'react-rough-notation'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -25,7 +26,36 @@ export default function Home({ posts }) {
             Latest
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
+            A place for{' '}
+            <RoughNotation
+              type="underline"
+              show={true}
+              color="#fff176"
+              animationDelay={800}
+              animationDuration={1200}
+            >
+              thoughts,{' '}
+            </RoughNotation>
+            <RoughNotation
+              type="underline"
+              show={true}
+              color="#ADD8E6"
+              animationDelay={1400}
+              animationDuration={1200}
+            >
+              reflections,{' '}
+            </RoughNotation>
+            &{' '}
+            <RoughNotation
+              type="underline"
+              show={true}
+              color="#FF0000"
+              animationDelay={1700}
+              animationDuration={1200}
+            >
+              everything{' '}
+            </RoughNotation>
+            in between
           </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
