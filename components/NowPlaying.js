@@ -6,7 +6,7 @@ export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher)
 
   return (
-    <div className="flex flex-row-reverse sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full">
+    <div className="flex flex-row-reverse sm:flex-row mb-8 space-x-0 sm:space-x-2 w-full mt-4">
       <svg className="h-5 w-5 ml-auto mt-1" viewBox="0 0 168 168">
         <path
           fill="#1ED760"
