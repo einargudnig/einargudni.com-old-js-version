@@ -27,7 +27,7 @@ export default function Home({ posts }) {
             <div className="">
               <h1 className="text-2xl font-extrabold leading-11 tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 mb-2">
                 I'm <span className="text-primary-color dark:text-primary-color-dark">Einar</span>,
-                a curious software developer who's trying to get a tiny bit better every day
+                a curious software developer who's trying to go to bed a tiny bit better every day
               </h1>
             </div>
             <div>
@@ -83,7 +83,7 @@ export default function Home({ posts }) {
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                     <dl>
                       <dt className="sr-only">Published on</dt>
-                      <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <dd className="text-base font-medium leading-6 text-slate-600 dark:text-slate-400">
                         <time dateTime={date}>{formatDate(date)}</time>
                       </dd>
                     </dl>
@@ -93,7 +93,7 @@ export default function Home({ posts }) {
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
                               href={`/blog/${slug}`}
-                              className="text-gray-900 dark:text-gray-100"
+                              className="text-slate-800 dark:text-slate-200"
                             >
                               {title}
                             </Link>
@@ -104,7 +104,7 @@ export default function Home({ posts }) {
                             ))}
                           </div>
                         </div>
-                        <div className="prose text-gray-500 max-w-none dark:text-gray-400">
+                        <div className="prose text-slate-600 max-w-none dark:text-slate-400">
                           {summary}
                         </div>
                       </div>
