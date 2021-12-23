@@ -5,10 +5,11 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import { RoughNotation } from 'react-rough-notation'
+import Image from '@/components/Image'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 3
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
@@ -22,11 +23,25 @@ export default function Home({ posts }) {
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
-          </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            A place for{' '}
+          <div className="flex justify-between items-center">
+            <div className="">
+              <h1 className="text-2xl font-extrabold leading-11 tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 mb-2">
+                I'm <span className="text-primary-color dark:text-primary-color-dark">Einar</span>,
+                a curious software developer who's trying to get a tiny bit better every day
+              </h1>
+            </div>
+            <div>
+              <Image
+                src="/static/images/einar-avatar-new.jpg"
+                alt="avatar"
+                width="384px"
+                height="384px"
+                className="rounded-full"
+              />
+            </div>
+          </div>
+          <p className="text-lg leading-7 text-slate-600 dark:text-slate-300">
+            This is my place for{' '}
             <RoughNotation
               type="underline"
               show={true}
@@ -114,18 +129,18 @@ export default function Home({ posts }) {
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="text-primary-color hover:text-primary-600 dark:hover:text-primary-400 dark:text-primary-color-dark"
+            className="text-primary-color hover:text-blue-600 dark:hover:text-yellow-300 dark:text-primary-color-dark"
             aria-label="all posts"
           >
             All Posts &rarr;
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter.provider !== '' && (
+      {/* {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </>
   )
 }

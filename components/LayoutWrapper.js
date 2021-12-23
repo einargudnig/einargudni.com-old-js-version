@@ -10,24 +10,33 @@ import NowPlaying from './NowPlaying'
 import Typewriter from 'typewriter-effect'
 
 const LayoutWrapper = ({ children }) => {
+  const stringSplitter = (string) => {
+    const splitter = string.replace('&gt;', '>')
+    return splitter.split('')
+  }
+
+  const stringSplitter2 = (string) => {
+    const splitter2 = string.replace('&lt;', '<')
+    return splitter2.split('')
+  }
+
   return (
     <SectionContainer>
       <div className="flex flex-col justify-between h-screen">
         <header className="flex items-center justify-between py-10">
           <div>
             <Link href="/" aria-label="Einar Gudni's website">
-              <div className="flex items-center justify-between text-primary-color dark:text-primary-color-dark">
-                <Typewriter
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString('<Einar />')
-                      .callFunction(() => {
-                        console.log('String typed out!')
-                      })
-                      .pauseFor(2500)
-                      .start()
+              <div className="flex items-center justify-between text-primary-color dark:text-primary-color-dark text-xl font-medium">
+                {/* <Typewriter
+                  options={{
+                    strings: [`<strong><business /> Co</strong>`],
+                    autoStart: true,
+                    loop: true,
+                    stringSplitter,
+                    stringSplitter2,
                   }}
-                />
+                />*/}
+                {'<Einar />'}
               </div>
             </Link>
           </div>
@@ -37,7 +46,7 @@ const LayoutWrapper = ({ children }) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
+                  className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100 hover:dark:text-primary-color-dark hover:text-primary-color"
                 >
                   {link.title}
                 </Link>

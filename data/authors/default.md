@@ -1,6 +1,6 @@
 ---
 name: Einar Guðni Guðjónsson
-avatar: /static/images/einar-avatar.pjpg
+avatar: /static/images/einar-avatar-new.jpg
 
 occupation: Software developer
 company: Maul
