@@ -4,7 +4,6 @@ import { USES } from '../data/usesData'
 import UsesTech from '@/components/Uses'
 
 export default function Uses() {
-  console.log(USES)
   return (
     <>
       <PageSEO

@@ -27,7 +27,7 @@ export default function Home({ posts }) {
             <div className="">
               <h1 className="text-2xl font-extrabold leading-11 tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 mb-2">
                 I'm <span className="text-primary-color dark:text-primary-color-dark">Einar</span>,
-                a curious software developer who's trying to go to bed a tiny bit better every day
+                a curious software developer who's trying to get a bit better every day
               </h1>
             </div>
             <div>
@@ -36,7 +36,7 @@ export default function Home({ posts }) {
                 alt="avatar"
                 width="384px"
                 height="384px"
-                className="rounded-full"
+                className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
               />
             </div>
           </div>

@@ -2,14 +2,14 @@ const siteMetadata = {
   title: 'Hi!👋',
   author: 'Einar Guðni Guðjónsson',
   headerTitle: 'My website',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: 'My online place for thoughts',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://einargudni.com,',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteRepo: 'https://github.com/einargudnig/personal-blog-v3',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/einar-avatar.jpg',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/twittercard.png',
   email: 'einargudnig@gmail.com',
   github: 'https://github.com/einargudnig',
   twitter: 'https://twitter.com/einargudni',
@@ -21,7 +21,7 @@ const siteMetadata = {
     // supports plausible, simpleAnalytics or googleAnalytics
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: 'G-95HPC8T3GB', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo
