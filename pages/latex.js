@@ -2,7 +2,7 @@ import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { docco, monokai } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { monokai } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 export default function Latex() {
   const images = `
