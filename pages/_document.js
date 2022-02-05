@@ -33,6 +33,7 @@ class MyDocument extends Document {
             integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc"
             crossOrigin="anonymous"
           />
+          <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
         </Head>
         <body className="antialiased text-black bg-white dark:bg-background-color dark:text-white">
           <Main />

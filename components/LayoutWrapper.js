@@ -1,4 +1,4 @@
-import siteMetadata from '@/data/siteMetadata'
+import { useState, useRef, useEffect } from 'react'
 import headerNavLinks from '@/data/headerNavLinks'
 import Link from './Link'
 import SectionContainer from './SectionContainer'

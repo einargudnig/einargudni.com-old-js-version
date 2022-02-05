@@ -6,6 +6,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
 import { RoughNotation } from 'react-rough-notation'
 import Image from '@/components/Image'
+import ShortcutHome from '@/components/ShortcutHome'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
@@ -72,6 +73,9 @@ export default function Home({ posts }) {
             </RoughNotation>
             in between
           </p>
+          <div className="">
+            <ShortcutHome />
+          </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
