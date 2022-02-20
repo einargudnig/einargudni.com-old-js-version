@@ -7,17 +7,10 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import NowPlaying from './NowPlaying'
 import Typewriter from 'typewriter-effect'
+import { useRouter } from 'next/router'
 
 const LayoutWrapper = ({ children }) => {
-  const stringSplitter = (string) => {
-    const splitter = string.replace('&gt;', '>')
-    return splitter.split('')
-  }
-
-  const stringSplitter2 = (string) => {
-    const splitter2 = string.replace('&lt;', '<')
-    return splitter2.split('')
-  }
+  const router = useRouter()
 
   return (
     <SectionContainer>
@@ -25,17 +18,15 @@ const LayoutWrapper = ({ children }) => {
         <header className="flex items-center justify-between py-6">
           <div>
             <Link href="/" aria-label="Einar Gudni's website">
-              <div className="flex items-center justify-between text-primary-color dark:text-primary-color-dark text-xl font-medium">
-                {/* <Typewriter
+              <div className="flex items-center justify-between text-xl font-semibold text-primary-color dark:text-primary-color-dark">
+                {`~${router.asPath}`}{' '}
+                <Typewriter
                   options={{
-                    strings: [`<strong><business /> Co</strong>`],
+                    strings: [],
                     autoStart: true,
                     loop: true,
-                    stringSplitter,
-                    stringSplitter2,
                   }}
-                />*/}
-                {'<Einar />'}
+                />
               </div>
             </Link>
           </div>

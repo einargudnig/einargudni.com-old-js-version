@@ -73,8 +73,10 @@ export default function Home({ posts }) {
             </RoughNotation>
             in between
           </p>
-          <div className="">
-            <ShortcutHome />
+          <div className="flex justify-center w-full">
+            <div className="justify-center mt-2">
+              <ShortcutHome />
+            </div>
           </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
