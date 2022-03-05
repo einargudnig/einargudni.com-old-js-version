@@ -22,6 +22,7 @@ module.exports = {
         'background-color': '#1F2023',
         'primary-color': '#1e90ff',
         'primary-color-dark': '#FFFF66',
+        'spotify-green': '#1DB954',
         primary: colors.teal,
         gray: colors.neutral,
       },
@@ -154,6 +155,28 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        shrink: {
+          '0% , 100%': {
+            height: '0.75rem',
+          },
+          '50%': {
+            height: '0.375rem',
+          },
+        },
+        expand: {
+          '0% , 100%': {
+            height: '0.375rem',
+          },
+          '50%': {
+            height: '0.75rem',
+          },
+        },
+      },
+      animation: {
+        shrink: 'shrink 1.5s infinte',
+        expand: 'expand 1.5s infinte',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
