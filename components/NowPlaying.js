@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
-import { Equalizer } from '@/components/Equalizer'
+import Equalizer from './Equalizer'
 
 export default function NowPlaying() {
   const { data } = useSWR('/api/now-playing', fetcher)
