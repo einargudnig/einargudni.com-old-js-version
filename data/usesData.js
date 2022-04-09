@@ -1,13 +1,18 @@
 export const USES = [
   {
+    name: 'Macbook Pro 14"',
+    description: 'M1 max - 10 cores, 32 core gpu. 64 GB RAM',
+    link: 'https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-3-deluxe-ux490/',
+  },
+  {
     name: 'Visual Studio Code',
     description: 'Nothing shocking here',
     link: 'https://code.visualstudio.com/',
   },
   {
-    name: 'Night Owl',
+    name: 'Level Up',
     description: 'I regularly change themes in VS Code for fun, this is my current theme.',
-    link: 'https://marketplace.visualstudio.com/items?itemName=sdras.night-owl',
+    link: 'https://marketplace.visualstudio.com/items?itemName=leveluptutorials.theme-levelup',
   },
   {
     name: 'Material Theme Icons',
@@ -15,9 +20,14 @@ export const USES = [
     link: 'https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme',
   },
   {
-    name: 'wsl2',
-    description: 'Great development environment when you get it set up',
-    link: 'https://docs.microsoft.com/en-us/windows/wsl/',
+    name: 'warp',
+    description: 'Trying out the beta version of this shell, looks promising',
+    link: 'https://www.warp.dev/',
+  },
+  {
+    name: 'iTerm2',
+    description: 'This one works well, like the customizability',
+    link: 'https://iterm2.com/',
   },
   {
     name: 'zsh',
@@ -28,11 +38,6 @@ export const USES = [
     name: 'Google Chrome',
     description: 'Good for developing and using all the RAM',
     link: 'https://www.google.com/chrome/',
-  },
-  {
-    name: 'Asus Zenbook Deluxe 3',
-    description: '1.8 GHz Quad-Core Intel Core i7. 16gb RAM',
-    link: 'https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-3-deluxe-ux490/',
   },
   {
     name: 'Logitech Mx Master 3',
@@ -56,8 +61,50 @@ export const USES = [
     link: 'https://www.asus.com/Displays-Desktops/Monitors/All-series/VG255H/',
   },
   {
+    name: 'Keychron K3 v2',
+    description:
+      'Slim and wireless mechanical keyboard, super nice to use and easy to travel with.',
+    link: 'https://www.keychron.com/products/keychron-k3-wireless-mechanical-keyboard',
+  },
+  {
     name: 'Sony WH-1000',
     description: 'Probably my most used item over the last 4 years.',
     link: 'https://www.sony.com/electronics/headband-headphones/wh-1000xm3',
+  },
+  {
+    name: 'Nothing ear (1)',
+    description:
+      'I lost my budget in-ear headphones, these were a good value, with noise canceling.',
+    link: 'https://intl.nothing.tech/products/ear-1',
+  },
+  {
+    name: 'Garmin Venu',
+    description: 'Good battery life and nice health metrics.',
+    link: 'https://www.garmin.com/en-US/p/643260',
+  },
+  {
+    name: '1Password',
+    description: 'Easy to use both work and personal account',
+    link: 'https://1password.com/',
+  },
+  {
+    name: 'Obsidian',
+    description: 'My tool for thinking, helps my store and connect knowledge',
+    link: 'https://obsidian.md/',
+  },
+  {
+    name: 'Anki',
+    description: 'Easy way to use spaced-repetition',
+    link: 'https://ankiweb.net/',
+  },
+  {
+    name: 'Asus Zenbook Deluxe 3',
+    description: '1.8 GHz Quad-Core Intel Core i7. 16gb RAM',
+    link: 'https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-3-deluxe-ux490/',
+  },
+  {
+    name: 'wsl2',
+    description: 'Great development environment when you get it set up - Used on my Asus Zenbook',
+    link: 'https://docs.microsoft.com/en-us/windows/wsl/',
   },
 ]

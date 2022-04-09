@@ -36,6 +36,12 @@ export default function Uses() {
               src="https://wakatime.com/share/@082e14f7-c718-4327-85f4-28e803bdaa80/05162f53-5527-4b7d-979d-c8c3a56814df.svg"
             ></embed>
           </figure>
+          <div className="pt-10">
+            <span className="text-sm">
+              I am planning on remaking this site in the future, so stay around to see what I come
+              up with.
+            </span>
+          </div>
         </div>
       </div>
     </>

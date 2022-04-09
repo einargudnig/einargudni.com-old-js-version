@@ -46,6 +46,13 @@ export default function AuthorLayout({ children, frontMatter }) {
           {/* <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">{children}</div> */}
           <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
             <p>{text1}</p>
+            <span>Are you interested in what I'm doing </span>
+            <Link
+              href={'/now'}
+              className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
+            >
+              now{' '}
+            </Link>
             <br />
             <p>
               <RoughNotation
@@ -60,14 +67,12 @@ export default function AuthorLayout({ children, frontMatter }) {
             <br />
             <p>
               {text3} <br />
-              <RoughNotation type="underline" show={true} color="#34D399" animationDelay={1000}>
-                <Link
-                  href={'/uses'}
-                  className="hover:text-primary-color dark:hover:text-primary-color-dark no-underline"
-                >
-                  Here{' '}
-                </Link>
-              </RoughNotation>{' '}
+              <Link
+                href={'/uses'}
+                className="special-underline no-underline hover:dark:text-gray-800 dark:text-gray-100"
+              >
+                Here{' '}
+              </Link>
               you can see what I use on daily basis.
             </p>
             <br />
