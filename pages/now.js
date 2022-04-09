@@ -16,13 +16,13 @@ export default function Now() {
         </div>
         {/* Misc */}
         <div className="flex justify-between">
-          <div className="text-sm p-1 mt-2 mb-10 border border-gray-200 rounded-md w-1/4">
+          <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
             <span className="font-semibold">Location:</span> <span>Reykjavík</span>
             <br />
             <span className="font-semibold">Weather:</span> <span>1°C, cloudy and still</span>
           </div>
 
-          <div className="text-sm p-1 mt-2 mb-10 border border-gray-200 rounded-md w-2/5">
+          <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-2/5">
             <span className="font-semibold">Reading:</span>{' '}
             <span>Lives of the Stoics - Ryan Holiday</span>
             <br />
@@ -30,7 +30,7 @@ export default function Now() {
             <span>The Knowledge Project: #134 Balaji Srinivasan</span>
           </div>
 
-          <div className="text-sm p-1 mt-2 mb-10 border border-gray-200 rounded-md w-1/4">
+          <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
             <span className="font-semibold">Eating:</span> <span>N/A</span>
             <br />
             <span className="font-semibold">Drinking:</span> <span>Water</span>
@@ -88,6 +88,7 @@ export default function Now() {
             article is a great reason to start your blog.
           </p>
           <br />
+          <p>I've been fidgeting around in Blender, I will write a post about it soon!</p>
           <p>
             I published a short e-book about how to make LaTeX templates for your homework, aimed
             towards beginners. It's only availabe in Icelandic ->{' '}
