@@ -13,6 +13,7 @@ export default function Now() {
       <div>
         <div className="my-2">
           <h3>Where am I and what am I doing?</h3>
+          <div className="mt-3 mb-4 text-sm">Last updated: 09 April 2022</div>
         </div>
         {/* Misc */}
         <div className="flex justify-between">
@@ -91,7 +92,7 @@ export default function Now() {
           <p>I've been fidgeting around in Blender, I will write a post about it soon!</p>
           <p>
             I published a short e-book about how to make LaTeX templates for your homework, aimed
-            towards beginners. It's only availabe in Icelandic ->{' '}
+            towards beginners. It's only availabe in Icelandic -&gt;{' '}
             <Link
               href={'https://einargudni.gumroad.com/l/ufidy'}
               className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
@@ -106,7 +107,6 @@ export default function Now() {
             one!
           </p>
         </div>
-        <div className="mt-10 mb-4 text-sm">Last updated: 09 April 2022</div>
         <div className="mt-3 text-sm">
           For more examples of folks with /now pages, check out{' '}
           <Link
