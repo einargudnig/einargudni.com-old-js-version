@@ -20,6 +20,10 @@ export default function Uses() {
           <br />
           This is also a nice way to see how my setup changes over time.
         </div>
+        <div className="text-gray-500 dark:text-gray-400 mt-5 mb-3 text-xs">
+          Note: This page contains affiliate links. If you click through and purchase, I may receive
+          compensation for that purchase.
+        </div>
         <span className="text-lg font-semibold mt-3">Software&nbsp;&&nbsp;gear</span>
         <div className="mt-3">
           {USES.map((d) => (

@@ -30,13 +30,13 @@ module.exports = {
         DEFAULT: {
           css: {
             color: theme('colors.slate.700'),
-            // a: {
-            //   color: theme('colors.primary-color'),
-            //   '&:hover': {
-            //     color: theme('colors.primary.600'),
-            //   },
-            //   code: { color: theme('colors.primary.400') },
-            // },
+            a: {
+              color: theme('colors.primary-color'),
+              '&:hover': {
+                color: theme('colors.blue.500'),
+              },
+              // code: { color: theme('colors.primary.400') },
+            },
             h1: {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
@@ -98,13 +98,13 @@ module.exports = {
         dark: {
           css: {
             color: theme('colors.slate.200'), //text color for dark mode
-            // a: {
-            //   color: theme('colors.primary-color-dark'), // links in dark mode
-            //   '&:hover': {
-            //     color: theme('colors.primary.400'),
-            //   },
-            //   code: { color: theme('colors.primary.400') },
-            // },
+            a: {
+              color: theme('colors.primary-color-dark'), // links in dark mode
+              '&:hover': {
+                color: theme('colors.yellow.300'),
+              },
+              // code: { color: theme('colors.primary.400') },
+            },
             h1: {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),

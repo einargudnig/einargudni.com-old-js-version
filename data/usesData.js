@@ -2,7 +2,7 @@ export const USES = [
   {
     name: 'Macbook Pro 14"',
     description: 'M1 max - 10 cores, 32 core gpu. 64 GB RAM',
-    link: 'https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-3-deluxe-ux490/',
+    link: 'https://amzn.to/3lk1zsC',
   },
   {
     name: 'Visual Studio Code',
@@ -42,7 +42,7 @@ export const USES = [
   {
     name: 'Logitech Mx Master 3',
     description: 'Very comfortable and great to use.',
-    link: 'https://www.logitech.com/en-us/products/mice/mx-master-3.html',
+    link: 'https://amzn.to/3ww4Qu3',
   },
   {
     name: 'Keychron K4 v2',
@@ -58,7 +58,7 @@ export const USES = [
   {
     name: `Asus 24,5" FHD Monitor`,
     description: 'I use this one at home.',
-    link: 'https://www.asus.com/Displays-Desktops/Monitors/All-series/VG255H/',
+    link: 'https://amzn.to/3NB9WfN',
   },
   {
     name: 'Keychron K3 v2',
@@ -69,18 +69,18 @@ export const USES = [
   {
     name: 'Sony WH-1000',
     description: 'Probably my most used item over the last 4 years.',
-    link: 'https://www.sony.com/electronics/headband-headphones/wh-1000xm3',
+    link: 'https://amzn.to/3yBCSQq',
   },
   {
     name: 'Nothing ear (1)',
     description:
       'I lost my budget in-ear headphones, these were a good value, with noise canceling.',
-    link: 'https://intl.nothing.tech/products/ear-1',
+    link: 'https://amzn.to/3wmudjo',
   },
   {
     name: 'Garmin Venu',
     description: 'Good battery life and nice health metrics.',
-    link: 'https://www.garmin.com/en-US/p/643260',
+    link: 'https://amzn.to/3Pu8k95',
   },
   {
     name: '1Password',
@@ -100,7 +100,7 @@ export const USES = [
   {
     name: 'Asus Zenbook Deluxe 3',
     description: '1.8 GHz Quad-Core Intel Core i7. 16gb RAM',
-    link: 'https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-3-deluxe-ux490/',
+    link: 'https://amzn.to/3PpThxj',
   },
   {
     name: 'wsl2',
