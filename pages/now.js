@@ -13,28 +13,28 @@ export default function Now() {
       <div>
         <div className="my-2">
           <h3>Where am I and what am I doing?</h3>
-          <div className="mt-3 mb-4 text-sm">Last updated: 09 April 2022</div>
+          <div className="mt-3 mb-4 text-sm">Last updated: 14 June 2022</div>
         </div>
         {/* Misc */}
         <div className="flex justify-between">
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
             <span className="font-semibold">Location:</span> <span>Reykjavík</span>
             <br />
-            <span className="font-semibold">Weather:</span> <span>1°C, cloudy and still</span>
+            <span className="font-semibold">Weather:</span> <span>9°C, mostly cloudy</span>
           </div>
 
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-2/5">
             <span className="font-semibold">Reading:</span>{' '}
-            <span>Lives of the Stoics - Ryan Holiday</span>
+            <span>Tools & Weapons - Brad Smith</span>
             <br />
             <span className="font-semibold">Podcast:</span>{' '}
-            <span>The Knowledge Project: #134 Balaji Srinivasan</span>
+            <span>Where it Happens: Ryan Hoover</span>
           </div>
 
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
             <span className="font-semibold">Eating:</span> <span>N/A</span>
             <br />
-            <span className="font-semibold">Drinking:</span> <span>Water</span>
+            <span className="font-semibold">Drinking:</span> <span>Coffe</span>
           </div>
         </div>
         {/* Work */}
@@ -62,12 +62,12 @@ export default function Now() {
           </p>
           <br />
           <p>
-            I'm always trying to learn more, and at the moment I'm going through Josh w. Comeau{' '}
+            I'm always trying to learn more, and at the moment I'm doing execute program{' '}
             <Link
-              href={'https://courses.joshwcomeau.com/css-for-js'}
+              href={'https://www.executeprogram.com/courses'}
               className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
             >
-              CSS for Developers
+              TypeScript courses.
             </Link>
           </p>
         </div>
@@ -89,7 +89,7 @@ export default function Now() {
             article is a great reason to start your blog.
           </p>
           <br />
-          <p>I've been fidgeting around in Blender, I will write a post about it soon!</p>
+          <p>I recently started to quantify my life. Collect various data about my daily life.</p>
           <p>
             I published a short e-book about how to make LaTeX templates for your homework, aimed
             towards beginners. It's only availabe in Icelandic -&gt;{' '}
