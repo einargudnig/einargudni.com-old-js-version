@@ -1,10 +1,10 @@
 ---
-name: Einar Guðni Guðjónsson
-avatar: /static/images/einar-avatar-new.jpg
+name: Vincent Jouanne
+avatar: /static/images/me.png
 
-occupation: Software developer
-company: Maul
-email: einargudnig@gmail.com
+occupation: Fullstack Software developer
+company: Inato, Paris 🇫🇷
+email: jouanne.vincent@gmail.com
 twitter: https://twitter.com/einargudni
 linkedin: https://www.linkedin.com/einargudni
 github: https://github.com/einargudnig

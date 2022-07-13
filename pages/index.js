@@ -27,51 +27,54 @@ export default function Home({ posts }) {
           <div className="flex items-center justify-between">
             <div className="">
               <h1 className="mb-2 text-2xl font-extrabold tracking-tight leading-11 text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-                I'm <span className="text-primary-color dark:text-primary-color-dark">Einar</span>,
-                a curious software developer who's trying to get a bit better every day
+                I'm <span className="text-primary-color dark:text-primary-color-dark">Vincent</span>
+                , a fullstack software developer who's trying to{' '}
+                <span className="text-secondary-color dark:text-secondary-color-dark">
+                  make you better
+                </span>{' '}
+                every day
               </h1>
             </div>
             <div>
               <Image
-                src="/static/images/einar-avatar-new.jpg"
+                src="/static/images/me.png"
                 alt="avatar"
                 width="384px"
                 height="384px"
-                className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
+                className=" [clip-path:polygon(16%_0,90%_0%,90%_90%,16%_90%,16%_60%,0_36%,16%_40%)]"
               />
             </div>
           </div>
           <p className="text-lg leading-7 text-slate-600 dark:text-slate-300">
-            This is my place for{' '}
+            This is your place for{' '}
             <RoughNotation
               type="underline"
               show={true}
-              color="#fff176"
+              color="#FFFF66"
               animationDelay={800}
               animationDuration={1200}
             >
-              thoughts,{' '}
+              App Architecture,{' '}
             </RoughNotation>
             <RoughNotation
               type="underline"
               show={true}
-              color="#ADD8E6"
+              color="#BDF2D5"
               animationDelay={1400}
               animationDuration={1200}
             >
-              reflections,{' '}
+              Testing,{' '}
             </RoughNotation>
-            &{' '}
             <RoughNotation
               type="underline"
               show={true}
-              color="#FF0000"
+              color="#EB1D36"
               animationDelay={1700}
               animationDuration={1200}
             >
-              everything{' '}
+              UI/UX{' '}
             </RoughNotation>
-            in between
+            resources in React, Node and Flutter
           </p>
           <div className="flex justify-center w-full">
             <div className="justify-center mt-2">

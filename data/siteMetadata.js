@@ -1,21 +1,20 @@
 const siteMetadata = {
-  title: 'Hi!👋',
-  author: 'Einar Guðni Guðjónsson',
+  title: 'VJ Blog 💻',
+  author: 'Vincent JOUANNE',
   headerTitle: 'My website',
   description: 'My online place for thoughts',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://einargudni.com,',
-  siteRepo: 'https://github.com/einargudnig/personal-blog-v3',
+  siteRepo: 'https://github.com/VincentJouanne/blog',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/einar-avatar.jpg',
   socialBanner: '/static/images/twittercard.png',
-  email: 'einargudnig@gmail.com',
-  github: 'https://github.com/einargudnig',
-  twitter: 'https://twitter.com/einargudni',
+  email: 'jouanne.vincent@gmail.com',
+  github: 'https://github.com/VincentJouanne',
+  twitter: 'https://twitter.com/vincentjouanne_',
   facebook: 'https://facebook.com',
-  instagram: 'https://instagram.com/einargudni',
-  linkedin: 'https://www.linkedin.com/einargudni/',
+  linkedin: 'https://www.linkedin.com/in/vincent-jouanne',
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
