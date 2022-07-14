@@ -1,0 +1,470 @@
+---
+title: How to create a custom theme for your Flutter application ?
+date: '2022-07-14'
+tags: ['flutter', 'ui']
+draft: false
+summary: In this article I show you how you can create a custom theme package for your Flutter application.
+images: []
+layout: PostSimple
+authors: ['default']
+---
+
+You just started coding your new application idea and quickly faced the following questions:
+
+- Where can I put **all my colors** and access them easily in the code ?
+- How do I handle **consistent spacing** across the whole application ?
+- How can I simply use **several text styles** with a concise syntaxe ?
+- etc.
+
+In this article, I will show you **the best way to answer all these questions** !
+
+The code used in this article can be [found in this repository](https://github.com/VincentJouanne/flutter-bloc-clean-architecture/tree/master/theme).
+
+# Motivation
+
+Today, the best approach to add a theme to your application is creating **a separate Flutter package** "theme" at the same level of your app folder:
+
+```bash
+my_application/
+--app/
+--theme/
+```
+
+This has **two main advantages**:
+
+- Reusability: you'll be able to use this theme easily in other projects
+- Separation of concerns: you'll delight your application folder by separating the concerns of each package: app and theme.
+
+The theme of our application will be accessible in all our widget like so: `final theme = ThemeResolver.of(context);`
+
+From the `theme` you'll be able to access `theme.colors`, `theme.sizes` and what ever you want. This will **enforce consistency in the whole application** and **avoid repeating yourself**.
+
+# Creating the theme package
+
+To create your custom theme package, you simply have to run:
+
+```bash
+flutter create --template=package theme
+```
+
+You should see a `theme.dart` file under the `lib` folder of your freshly created package:
+
+```dart
+library theme;
+
+//REMOVE THIS CLASS
+/// A Calculator.
+class Calculator {
+  /// Returns [value] plus 1.
+  int addOne(int value) => value + 1;
+}
+```
+
+You can remove the `Calculator` and its associated test, we obviously won't need them.
+
+We will now create the 3 following folders: `src`, `data`, `widgets`:
+
+```bash
+theme/
+--lib/
+----theme.dart
+----src/
+------data/
+------widgets/
+```
+
+# Adding the Theme data
+
+The data of our theme are: **colors**, **sizes**, **typography** etc.
+
+For each, we will have a dedicated file like so:
+
+```bash
+theme/
+--lib/
+----theme.dart
+----src/
+------data/
+--------color_data.dart
+--------size_data.dart
+--------typography_data.dart
+------widgets/
+```
+
+## Colors
+
+The `ColorData` class might look like this:
+
+```dart
+import 'package:flutter/material.dart';
+
+class ColorData {
+  ColorData({
+    required this.sunset,
+    required this.sunrise,
+    required this.twilight,
+    required this.morning,
+    required this.fog,
+    required this.eclipse,
+  });
+
+  final Color sunset;
+  final Color sunrise;
+  final Color twilight;
+  final Color morning;
+  final Color fog;
+  final Color eclipse;
+
+  factory ColorData.main() {
+    return ColorData(
+      sunset: const Color(0xFFF65B4E),
+      sunrise: const Color(0xFFFDA758),
+      twilight: const Color(0xFF29319F),
+      morning: const Color(0xFFFFBA7C),
+      fog: const Color(0xFFFFDEEF),
+      eclipse: const Color(0xFF573353),
+    );
+  }
+
+  static ColorScheme getMainTheme(ColorData colors) {
+    return ColorScheme(
+      brightness: Brightness.light,
+      primary: colors.eclipse,
+      onPrimary: colors.eclipse,
+      secondary: colors.eclipse,
+      onSecondary: colors.eclipse,
+      error: colors.eclipse,
+      onError: colors.eclipse,
+      background: colors.eclipse,
+      onBackground: colors.eclipse,
+      surface: colors.eclipse,
+      onSurface: colors.eclipse,
+    );
+  }
+}
+```
+
+Don't forget to add the static method `getMainTheme` which will help us to create our custom theme by returning a `ColorScheme`.
+
+## Sizes
+
+In order to have consistent spacing in your app I highly recommend you to have a `SizeData` class as so:
+
+```dart
+import 'package:flutter/widgets.dart';
+
+class SizeData {
+  const SizeData({
+    required this.xs,
+    required this.s,
+    required this.m,
+    required this.l,
+    required this.xl,
+  });
+
+  factory SizeData.main() => const SizeData(
+        xs: 5,
+        s: 10,
+        m: 15,
+        l: 20,
+        xl: 30,
+      );
+
+  final double xs;
+
+  final double s;
+
+  final double m;
+
+  final double l;
+
+  final double xl;
+
+  ThemeEdgeInsetsSizeData get insets => ThemeEdgeInsetsSizeData(this);
+}
+
+class ThemeEdgeInsetsSizeData {
+  const ThemeEdgeInsetsSizeData(this._spacing);
+
+  final SizeData _spacing;
+
+  EdgeInsets get xs => EdgeInsets.all(_spacing.xs);
+
+  EdgeInsets get s => EdgeInsets.all(_spacing.s);
+
+  EdgeInsets get m => EdgeInsets.all(_spacing.m);
+
+  EdgeInsets get l => EdgeInsets.all(_spacing.l);
+
+  EdgeInsets get xl => EdgeInsets.all(_spacing.xl);
+}
+```
+
+## Typography
+
+For your fonts, you will have to create the TypogaphyData class.
+
+To import your fonts, I recommend you to check the official way to do it.
+
+In this example, I have imported two fonts:
+
+```dart
+***
+
+***
+flutter:
+  uses-material-design: true
+  fonts:
+    - family: Klasik
+      fonts:
+        - asset: fonts/Klasik-Regular.otf
+    - family: Manrope
+      fonts:
+        - asset: fonts/Manrope-ExtraLight.ttf
+          weight: 200
+        - asset: fonts/Manrope-Light.ttf
+          weight: 300
+        - asset: fonts/Manrope-Regular.ttf
+          weight: 400
+        - asset: fonts/Manrope-Medium.ttf
+          weight: 500
+        - asset: fonts/Manrope-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Manrope-Bold.ttf
+          weight: 700
+        - asset: fonts/Manrope-ExtraBold.ttf
+          weight: 800
+```
+
+And declared the `TypographyData` class like so:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:theme/src/data/color_data.dart';
+
+const _basePath = 'packages/theme/';
+const _klasik = _basePath + 'Klasik';
+const _manrope = _basePath + 'Manrope';
+
+class TypographyData {
+  const TypographyData({
+    required this.displayLarge,
+    required this.headlineLarge,
+    required this.headlineMedium,
+    required this.headlineSmall,
+    required this.titleLarge,
+    required this.titleMedium,
+    required this.titleSmall,
+    required this.bodyLarge,
+    required this.bodyMedium,
+    required this.bodySmall,
+  });
+
+  final TextStyle displayLarge;
+  final TextStyle headlineLarge;
+  final TextStyle headlineMedium;
+  final TextStyle headlineSmall;
+
+  final TextStyle titleLarge;
+  final TextStyle titleMedium;
+  final TextStyle titleSmall;
+
+  final TextStyle bodyMedium;
+  final TextStyle bodyLarge;
+  final TextStyle bodySmall;
+
+  factory TypographyData.main(ColorData colors) => TypographyData(
+      displayLarge:
+          TextStyle(fontFamily: _klasik, fontSize: 40, color: colors.eclipse),
+      headlineLarge:
+          TextStyle(fontFamily: _klasik, fontSize: 32, color: colors.eclipse),
+      headlineMedium:
+          TextStyle(fontFamily: _klasik, fontSize: 24, color: colors.eclipse),
+      headlineSmall:
+          TextStyle(fontFamily: _klasik, fontSize: 18, color: colors.eclipse),
+      titleLarge: TextStyle(
+          fontFamily: _manrope,
+          fontWeight: FontWeight.w700,
+          fontSize: 18,
+          color: colors.eclipse),
+      titleMedium: TextStyle(
+          fontFamily: _manrope,
+          fontWeight: FontWeight.w700,
+          fontSize: 16,
+          color: colors.eclipse),
+      titleSmall: TextStyle(
+          fontFamily: _manrope,
+          fontWeight: FontWeight.w500,
+          fontSize: 14,
+          color: colors.eclipse),
+      bodyLarge: TextStyle(
+          fontFamily: _manrope,
+          fontWeight: FontWeight.w700,
+          fontSize: 12,
+          color: colors.eclipse),
+      bodyMedium: TextStyle(
+          fontFamily: _manrope,
+          fontWeight: FontWeight.w500,
+          fontSize: 12,
+          color: colors.eclipse),
+      bodySmall: TextStyle(
+          fontFamily: _manrope,
+          fontWeight: FontWeight.w700,
+          fontSize: 10,
+          color: colors.eclipse));
+
+  static TextTheme getMainTextTheme(ColorData colors) {
+    return const TextTheme().copyWith(
+      displayLarge: TypographyData.main(colors).displayLarge,
+      headlineLarge: TypographyData.main(colors).headlineLarge,
+      headlineMedium: TypographyData.main(colors).headlineMedium,
+      headlineSmall: TypographyData.main(colors).headlineSmall,
+      titleLarge: TypographyData.main(colors).titleLarge,
+      titleMedium: TypographyData.main(colors).titleMedium,
+      titleSmall: TypographyData.main(colors).titleSmall,
+      bodyLarge: TypographyData.main(colors).bodyLarge,
+      bodyMedium: TypographyData.main(colors).bodyMedium,
+      bodySmall: TypographyData.main(colors).bodySmall,
+    );
+  }
+}
+```
+
+The **\_basePath** value will allow us to resolve the fonts when we will use them in our app/ folder.
+
+## Theme Data Container
+
+Now let's wrap everything in a `ThemeDataContainer` :
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:theme/src/data/color_data.dart';
+import 'package:theme/src/data/size_data.dart';
+import 'package:theme/src/data/typography_data.dart';
+
+class ThemeDataContainer {
+  const ThemeDataContainer({
+    required this.theme,
+    required this.colors,
+    required this.sizes,
+  });
+
+  factory ThemeDataContainer.main() {
+    final colors = ColorData.main();
+    final theme = ThemeData().fromColors(colors);
+    final sizes = SizeData.main();
+
+    return ThemeDataContainer(theme: theme, colors: colors, sizes: sizes);
+  }
+
+  final ThemeData theme;
+  final ColorData colors;
+  final SizeData sizes;
+}
+
+extension on ThemeData {
+  ThemeData fromColors(ColorData colors) {
+    return ThemeData(
+      textTheme: TypographyData.getMainTextTheme(colors),
+    );
+  }
+}
+```
+
+This class helps to bootstrap everything by instantiating in its `main()` method everything we'll need.
+
+## Theme Resolver
+
+To provide our custom theme to child's widgets we will need a class which extends `InheritedTheme`.
+I like to call it `ThemeResolver`:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:theme/src/data/theme_data_container.dart';
+
+class ThemeResolver extends InheritedTheme {
+  const ThemeResolver({Key? key, required Widget child, required this.data})
+      : super(child: child, key: key);
+
+  final ThemeDataContainer data;
+
+  static ThemeDataContainer of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ThemeResolver>()!.data;
+  }
+
+  @override
+  bool updateShouldNotify(covariant ThemeResolver oldWidget) {
+    return data != oldWidget.data;
+  }
+
+  @override
+  Widget wrap(BuildContext context, Widget child) {
+    return ThemeResolver(
+      data: data,
+      child: child,
+    );
+  }
+}
+```
+
+## Import your custom theme in your app
+
+Our theme is ready ! Now let's see how we can use it in our app.
+
+Let's add in the dependencies of our app, the theme package we just created:
+
+```bash
+***
+dependencies:
+  theme:
+    path: ../theme
+***
+```
+
+Great, Now we can provide the whole widget tree with our theme where our `MaterialApp` is built:
+
+```dart
+***
+return MaterialApp(
+      builder: (context, child) {
+          final _themeData = ThemeDataContainer.main();
+        return ThemeResolver(
+          data: _themeData,
+          child: Theme(data: _themeData.theme, child: child!),
+        );
+      },
+    );
+***
+```
+
+## Use your custom theme everywhere in the app
+
+To use our theme, there is nothing more simple than calling final `theme = ThemeResolver.of(context);` in the `build` method of your widgets.
+
+Let's create a shortcut for this since we'll need to use it often:
+
+Add at the root of your whole project a snippets.code-snippets file, like so:
+
+```bash
+.vscode/
+--snippets.code-snippets
+app/
+theme/
+```
+
+with the following content
+
+```json
+{
+  "App Theme": {
+    "scope": "dart",
+    "prefix": "theme",
+    "description": "Import Theme from context",
+    "body": "final theme = ThemeResolver.of(context);"
+  }
+}
+```
+
+Good job !
+
+You can see how **I use this approach in a [real world project](https://github.com/VincentJouanne/flutter-bloc-clean-architecture)**.

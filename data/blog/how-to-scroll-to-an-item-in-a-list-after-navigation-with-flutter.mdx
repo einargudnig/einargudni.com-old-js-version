@@ -1,0 +1,119 @@
+---
+title: How to scroll to an item in a list after navigation with Flutter ?
+date: '2022-07-14'
+tags: ['flutter', 'ux']
+draft: false
+summary: In this article I show you how you can scroll to an item in a list after navigation with Flutter.
+images: []
+layout: PostSimple
+authors: ['default']
+---
+
+To create rich UX, you need to guide you users as much as possible to help them accomplish "[the job to be done](https://www.productplan.com/glossary/jobs-to-be-done-framework/)".
+
+In today's article, we'll learn **how to guide our users through the app** by scrolling **to a desired resource** on a different page
+
+You can find [the complete source code here](https://github.com/VincentJouanne/flutter-my-awesome-uis/tree/master/lib/scroll_to_item_in_list_after_redirection).
+
+# Dependencies
+
+To achieve this, we will need the package [scrollable_positioned_list](https://pub.dev/packages/scrollable_positioned_list) which will allows us to control the scroll of our list.
+
+```bash
+flutter pub add scrollable_positioned_list
+```
+
+# Controlling the scroll of the list
+
+You will need to create a scroll controller and a function `scrollToTarget` that we will **launch after build** to scroll to the specific item.
+
+```dart:list_of_all_items_view.dart {12, 33} showLineNumbers
+import 'package:flutter/material.dart';
+import 'package:flutter_my_awesome_uis/scroll_to_item_in_list_after_redirection/item_data.dart';
+import 'package:flutter_my_awesome_uis/scroll_to_item_in_list_after_redirection/post_frame_widget.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+
+class ListOfAllItemsView extends StatelessWidget {
+  ListOfAllItemsView({Key? key, required this.itemIdScrollTarget})
+      : super(key: key);
+  final String itemIdScrollTarget;
+  final itemScrollController = ItemScrollController();
+
+  void scrollToTarget(int index) {
+    itemScrollController.scrollTo(
+      index: index,
+      duration: const Duration(
+        milliseconds: 200,
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('List of all items'),
+        ),
+        body: PostFrameWidget(
+          callback: () {
+            final itemToScrollTo = allItems.indexWhere(
+              (item) => item.id == itemIdScrollTarget,
+            );
+            if (itemToScrollTo != -1) {
+              scrollToTarget(itemToScrollTo);
+            }
+          },
+          child: ScrollablePositionedList.separated(
+              itemCount: allItems.length,
+              itemScrollController: itemScrollController,
+              itemBuilder: (context, index) {
+                return ListTile(title: Text(allItems[index].text));
+              },
+              separatorBuilder: (context, index) {
+                return const Divider();
+              }),
+        ));
+  }
+}
+```
+
+# Trigger the scroll after build
+
+You may have noticed a special widget here: `PostFrameWidget`. This is the widget we will use to trigger our method `scrollToTarget` thanks to the callback property. This widget looks like so:
+
+```dart:post_frame_widget.dart {7, 11, 21} showLineNumbers
+import 'package:flutter/material.dart';
+
+class PostFrameWidget extends StatefulWidget {
+  const PostFrameWidget({
+    Key? key,
+    required this.child,
+    required this.callback,
+  }) : super(key: key);
+
+  final Widget child;
+  final Function callback;
+
+  @override
+  State<PostFrameWidget> createState() => _PostFrameStateWidget();
+}
+
+class _PostFrameStateWidget extends State<PostFrameWidget> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => widget.callback());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.child;
+  }
+}
+```
+
+We are using the `initState` of the `StatefulWidget` base class combined with `WidgetsBinding.instance.addPostFrameCallback((\_) => widget.callback());` to get the desired behavior.
+
+Everything executed in `addPostFrameCallback` will be executed **after the child of this widget has been built.**
+
+Enjoy !

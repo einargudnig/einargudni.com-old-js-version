@@ -28,7 +28,7 @@ export default function Home({ posts }) {
             <div className="">
               <h1 className="mb-2 text-2xl font-extrabold tracking-tight leading-11 text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                 I'm <span className="text-primary-color dark:text-primary-color-dark">Vincent</span>
-                , a fullstack software developer who's trying to{' '}
+                , a fullstack software engineer who's trying to{' '}
                 <span className="text-secondary-color dark:text-secondary-color-dark">
                   make you better
                 </span>{' '}
@@ -41,7 +41,7 @@ export default function Home({ posts }) {
                 alt="avatar"
                 width="384px"
                 height="384px"
-                className=" [clip-path:polygon(16%_0,90%_0%,90%_90%,16%_90%,16%_60%,0_36%,16%_40%)]"
+                className=" [clip-path:polygon(25%_0%,100%_0%,100%_100%,25%_100%,0%_50%)]"
               />
             </div>
           </div>

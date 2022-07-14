@@ -1,0 +1,157 @@
+---
+title: How to create an animated tooltip widget with Flutter ?
+date: '2022-07-14'
+tags: ['flutter', 'ui']
+draft: false
+summary: In this article I show you how you can create a custom theme package for your Flutter application.
+images: []
+layout: PostSimple
+authors: ['default']
+---
+
+You can [find the result here](https://twitter.com/vincentjouanne_/status/1525438984029102081?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1525438984029102081%7Ctwgr%5E%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.vincentjouanne.dev%2Fhow-to-create-a-fade-and-bounce-tooltip-widget-with-flutter%2F)
+and [the complete source code here.](https://github.com/VincentJouanne/flutter-my-awesome-uis/tree/master/lib/fade_and_bounce_tooltip)
+
+# Create a tooltip shape with Shape Border
+
+First, we are going to create a Shape Border we'll apply later to a container to get **a perfect tooltip shape**:
+
+```dart
+import 'package:flutter/material.dart';
+
+class TooltipShapeBorder extends ShapeBorder {
+  final double arrowWidth;
+  final double arrowHeight;
+  final double arrowArc;
+  final double radius;
+
+  const TooltipShapeBorder({
+    this.radius = 10.0,
+    this.arrowWidth = 20.0,
+    this.arrowHeight = 10.0,
+    this.arrowArc = 0.0,
+  }) : assert(arrowArc <= 1.0 && arrowArc >= 0.0);
+
+  @override
+  EdgeInsetsGeometry get dimensions => EdgeInsets.only(bottom: arrowHeight);
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) => Path();
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+    rect = Rect.fromPoints(
+        rect.topLeft, rect.bottomRight - Offset(0, arrowHeight));
+    double x = arrowWidth, y = arrowHeight, r = 1 - arrowArc;
+    return Path()
+      ..addRRect(RRect.fromRectAndRadius(rect, Radius.circular(radius)))
+      ..moveTo(rect.bottomCenter.dx + x / 2, rect.bottomCenter.dy)
+      ..relativeLineTo(-x / 2 * r, y * r)
+      ..relativeQuadraticBezierTo(
+          -x / 2 * (1 - r), y * (1 - r), -x * (1 - r), 0)
+      ..relativeLineTo(-x / 2 * r, -y * r);
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {}
+
+  @override
+  ShapeBorder scale(double t) => this;
+}
+```
+
+# Adding core widgets and animations
+
+To **get a smooth effect of pop**, the trick is to play with two physics properties:
+
+- scale
+- fade
+
+## Scale
+
+For a pop effect, we will use the easeOutBack curved animation in order to have a tooltip growing until a point it becomes bigger than its final size and go back to its target size.
+
+## Fade
+
+To make the animation smooth, we will use the easeIn curved animation to have a progressively fade-in effect.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_my_awesome_uis/fade_and_bounce_tooltip/tooltip_shape_border.dart';
+
+class AwesomeTooltip extends StatefulWidget {
+  const AwesomeTooltip({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  State<AwesomeTooltip> createState() => _AwesomeTooltipState();
+}
+
+class _AwesomeTooltipState extends State<AwesomeTooltip>
+    with TickerProviderStateMixin {
+  late AnimationController _opacityController;
+  late AnimationController _scaleController;
+
+  late Animation<double> _opacityAnimation;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _opacityController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 150),
+    );
+    _opacityAnimation =
+        CurvedAnimation(parent: _opacityController, curve: Curves.easeIn);
+
+    _scaleController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 500), value: 0.3);
+    _scaleAnimation =
+        CurvedAnimation(parent: _scaleController, curve: Curves.easeOutBack);
+
+    _scaleController.forward();
+    _opacityController.forward();
+  }
+
+  @override
+  void dispose() {
+    _opacityController.dispose();
+    _scaleController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeTransition(
+      opacity: _opacityAnimation,
+      child: ScaleTransition(
+        scale: _scaleAnimation,
+        child: Container(
+          decoration: const ShapeDecoration(
+            color: Colors.green,
+            shape: TooltipShapeBorder(arrowArc: 0.3, radius: 8),
+            shadows: [
+              BoxShadow(
+                  color: Colors.black26, blurRadius: 4.0, offset: Offset(2, 2))
+            ],
+          ),
+          child: const Padding(
+            padding: EdgeInsets.all(16),
+            child: Text(
+              "Wow, this tooltip is awesome ! ",
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+Play with the code, change constants and see what fits your need !

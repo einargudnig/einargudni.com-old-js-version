@@ -1,0 +1,105 @@
+---
+title: What tests do you need for your Flutter application ?
+date: '2022-07-14'
+tags: ['flutter', 'test']
+draft: false
+summary: In this article I detail the purpose of the 4 kinds of tests you might need for your Flutter application. We will talk about Unit, Smoke, Integration and End-to-end tests.
+images: []
+layout: PostSimple
+authors: ['default']
+---
+
+Testing is the art of **delegating the mental load to the machine** in order to:
+
+- Have a quicker feedback loop
+- Design your code
+- Refactor safely
+- Document the codebase
+
+When you have a tested codebase you put yourself and your team on the road to success: **everyone works in a safe environment** backed up by "security nets".
+
+But... what should we test ?
+
+In this article **I will break down the 4 kinds of tests you can do in Flutter.**
+
+---
+
+You can find the implementation of each kind of test [in this Github repository](https://github.com/VincentJouanne/flutter-bloc-clean-architecture):
+
+---
+
+# Unit tests
+
+I think **people fails at Unit tests because they focus on implementation details** rather than **focusing on business value** of the application: the use-cases.
+
+Unit tests gather the following characteristics:
+
+- Runs in-memory (< x0 ms)
+- Spot functional regression
+- Involves Use-cases and Domain layers
+- Uses a fake Infrastructure
+
+<Image alt="second brain" src="/static/images/unit-test-flutter.png" width={906} height={398} />
+
+Use-cases are all the reads and writes of your application:
+
+- Signup with credentials
+- Signin with Google
+- Retrieve current progression
+- Save workout program
+- etc.
+
+You can find [an example here](https://github.com/VincentJouanne/flutter-bloc-clean-architecture/blob/master/app/test/features/authentication/bloc/signup_cubit_test.dart).
+
+# Smoke tests
+
+"Pschhhh" - a smoke test running.
+
+Also known as Widget tests, they are focus on user interactions with the UI.
+
+I like to write them with a BDD-style:
+
+- **Given** an unknown user on the Signup page, **When** he enters a badly formatted email, **Then** he should see an error message.
+- **Given** a well-known user on the Login page, **When** he enters his credentials in the login page, **Then** he should be redirected to the Home page.
+- etc.
+
+These tests has the following characteristics:
+
+- Runs in-memory (< x00 ms)
+- Spot functional regression
+- Involves UI, Use-cases and Domain layers
+- Uses a fake Infrastructure
+
+<Image alt="second brain" src="/static/images/smoke-test-flutter.png" width={906} height={398} />
+
+If you struggle to achieve the desired assertion, you may have a problem on one of your use-case: then, you can fallback to your unit tests :) !
+
+You can find [an example here](https://github.com/VincentJouanne/flutter-bloc-clean-architecture/blob/master/app/test/features/authentication/ui/signup_success_test.dart)
+
+# Snapshots tests
+
+Known as "Golden tests", focused on the UI, they spot Visual regressions:
+
+- Runs in-memory (< x00 ms)
+- Spot visual regressions
+- Involves UI
+
+<Image alt="second brain" src="/static/images/golden-test-flutter.png" width={906} height={398} />
+
+# E2E tests
+
+Similarly to smoke tests, they are focus on the user interactions with the UI but they involves the real infrastructure implementation and runs on a device:
+
+- Runs on a device ( < x000 ms)
+- Spot functional regression
+- Involves UI, Uses-cases, Domain, Infrastructure
+
+<Image alt="second brain" src="/static/images/e2e-test-flutter.png" width={906} height={398} />
+
+If you have used a BDD-style approach for your smoke tests with reusable steps, you should be able to write meaningful e2e tests in no-time :)
+
+You can find [an example here](https://github.com/VincentJouanne/flutter-bloc-clean-architecture/blob/master/app/integration_test/features/authentication/src/authentication_test.dart)
+
+# Wrap up
+
+If you have this 4 kinds of test in your codebase, congratulations, you are sure to have one of the strongest test suite possible with Flutter !
