@@ -23,28 +23,38 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             {title}
           </h1>
-          <div className="relative max-w-lg">
-            <input
-              aria-label="Search articles"
-              type="text"
-              onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search articles"
-              className="block w-full px-4 py-2 text-slate-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-primary-color focus:border-primary-color dark:focus:ring-primary-color-dark dark:focus:border-primary-color-dark dark:bg-gray-800 dark:text-slate-100"
-            />
-            <svg
-              className="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          <div className="flex justify-between">
+            <div className="relative max-w-lg">
+              <input
+                aria-label="Search articles"
+                type="text"
+                onChange={(e) => setSearchValue(e.target.value)}
+                placeholder="Search articles"
+                className="block w-full px-4 py-2 text-slate-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-primary-color focus:border-primary-color dark:focus:ring-primary-color-dark dark:focus:border-primary-color-dark dark:bg-gray-800 dark:text-slate-100"
               />
-            </svg>
+              <svg
+                className="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <Link
+                href={'/tags'}
+                className="text-xl font-semibold text-gray-900 sm:p-4 dark:text-gray-100 hover:dark:text-primary-color-dark hover:text-primary-color"
+              >
+                All Tags
+              </Link>
+            </div>
           </div>
         </div>
         <ul>

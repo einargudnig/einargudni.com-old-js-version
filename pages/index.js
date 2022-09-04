@@ -37,7 +37,8 @@ export default function Home({ posts }) {
                 alt="avatar"
                 width="384px"
                 height="384px"
-                className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
+                // className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
+                className="rounded-full"
               />
             </div>
           </div>
