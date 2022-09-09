@@ -10,7 +10,7 @@ export default function Now() {
         description="What I'm working on now"
         url={siteMetadata.url}
       />
-      <div>
+      <div className="mb-8">
         <div className="my-2">
           <h3>Where am I and what am I doing?</h3>
           <div className="mt-3 mb-4 text-sm">Last updated: 4 September 2022</div>

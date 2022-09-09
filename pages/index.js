@@ -1,5 +1,6 @@
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
+import { useState } from 'react'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
@@ -10,7 +11,7 @@ import ShortcutHome from '@/components/ShortcutHome'
 
 import NewsletterForm from '@/components/NewsletterForm'
 
-const MAX_DISPLAY = 3
+const MAX_DISPLAY = 1
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
@@ -31,7 +32,7 @@ export default function Home({ posts }) {
                 a curious software developer who's trying to get a bit better every day
               </h1>
             </div>
-            <div>
+            {/* <div>
               <Image
                 src="/static/images/einar-avatar-new.jpg"
                 alt="avatar"
@@ -40,7 +41,7 @@ export default function Home({ posts }) {
                 // className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
                 className="rounded-full"
               />
-            </div>
+            </div> */}
           </div>
           <p className="text-lg leading-7 text-slate-600 dark:text-slate-300">
             This is my place for{' '}
@@ -80,8 +81,8 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {!posts.length && 'No posts found.'}
+        {/* <ul className="divide-y divide-gray-200 dark:divide-gray-700"> */}
+        {/* {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
             const { slug, date, title, summary, tags } = frontMatter
             return (
@@ -130,19 +131,86 @@ export default function Home({ posts }) {
               </li>
             )
           })}
-        </ul>
-      </div>
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            className="text-primary-color hover:text-blue-600 dark:hover:text-yellow-300 dark:text-primary-color-dark"
-            aria-label="all posts"
-          >
-            All Posts &rarr;
-          </Link>
+        </ul> */}
+        <div />
+        <div className="mb-4">
+          <div className="h-5" />
+          <div className=" border-2 border-gray-200 dark:border-gray-700 rounded-lg">
+            {!posts.length && 'No posts found.'}
+            {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
+              const { slug, date, title, summary, tags } = frontMatter
+              return (
+                <div key={slug} className="p-2">
+                  <article>
+                    <div className="space-y-2 xl:grid xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
+                      <dl>
+                        <dt className="sr-only">Published on</dt>
+                        <dd className="text-base font-medium leading-6 text-slate-600 dark:text-slate-400">
+                          <time dateTime={date}>{formatDate(date)}</time>
+                        </dd>
+                      </dl>
+                      <div className="space-y-5 xl:col-span-3">
+                        <div className="space-y-6">
+                          <div>
+                            <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                              <Link
+                                href={`/blog/${slug}`}
+                                className="text-slate-800 dark:text-slate-200"
+                              >
+                                {title}
+                              </Link>
+                            </h2>
+                            <div className="flex flex-wrap">
+                              {tags.map((tag) => (
+                                <Tag key={tag} text={tag} />
+                              ))}
+                            </div>
+                          </div>
+                          <div className="prose text-slate-600 max-w-none dark:text-slate-400">
+                            {summary}
+                          </div>
+                        </div>
+                        <div className="text-base font-medium leading-6">
+                          <Link
+                            href={`/blog/${slug}`}
+                            className="text-primary-color hover:text-blue-600 dark:hover:text-yellow-300 dark:text-primary-color-dark"
+                            aria-label={`Read "${title}"`}
+                          >
+                            Read more &rarr;
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              )
+            })}
+          </div>
+
+          <div className="w-44 h-44">
+            <Image
+              src="/static/images/index/map.png"
+              alt="map"
+              width="550px"
+              height="550px"
+              // className=" [clip-path:polygon(0%_0%,100%_0%,50%_100%,0%_50%)]"
+              className="rounded-md"
+            />
+          </div>
+
+          {posts.length > MAX_DISPLAY && (
+            <div className="border-2 border-gray-200 dark:border-gray-700 rounded-lg font-medium w-44 h-44 item-center justify-center flex">
+              <Link
+                href="/blog"
+                className="text-primary-color hover:text-blue-600 dark:hover:text-yellow-300 dark:text-primary-color-dark"
+                aria-label="all posts"
+              >
+                All Posts &rarr;
+              </Link>
+            </div>
+          )}
         </div>
-      )}
+      </div>
       {/* {siteMetadata.newsletter.provider !== '' && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
