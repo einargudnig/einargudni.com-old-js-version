@@ -57,12 +57,12 @@ export default function Now() {
           <br />
           <p>
             At this moment I'm mostly using technology such as React, Tailwind, AWS lambda, S3, and
-            more. We recently started to migrate to Vervel from AWS S3
+            more. We recently started to migrate to Vercel from AWS S3
           </p>
           <br />
           <p>
             I recently started a project to update a part of our data to match our new data model.
-            It's not the most fun projerct to do, but it's important for us to finish this project.
+            It's not the most fun project to do, but it's important for us to finish this project.
           </p>
           <p>It will help us a lot in regard to other projects we have.</p>
           <br />
