@@ -121,21 +121,15 @@ export default function Now() {
           <p>
             You can see the live webpage{' '}
             <Link
-              href={'https://remix.run/'}
+              href={'https://oktoberfest22.vercel.app/'}
               className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
             >
               here.
             </Link>{' '}
           </p>
           <p>
-            If you want to read more details about this project you can do that{' '}
-            <Link
-              href={'https://remix.run/'}
-              className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
-            >
-              here
-            </Link>{' '}
-            on my blog.
+            If you want to read more details about this project you can do that soon. I will release
+            a post about it this next week.
           </p>
         </div>
         <div className="mt-3 text-sm">
