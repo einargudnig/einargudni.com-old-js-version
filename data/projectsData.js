@@ -1,5 +1,25 @@
 const projectsData = [
   {
+    title: 'Okteberfest22',
+    description: `Website for the 2022 Oktoberfest in Munich, Germany. Counter and a bingo card uilt with TypeScript.`,
+    imgSrc: '',
+    href: 'https://oktoberfest22.vercel.app/',
+    github: 'https://github.com/einargudnig/oktoberfest22',
+    tech1: 'Next.js',
+    tech2: 'TailwindCSS',
+    tech3: 'Supabase',
+  },
+  {
+    title: 'Personal Website 4.0',
+    description: `Current version. Improved the blog a lot, rebuilt with tailwind and a lot of extra features.`,
+    imgSrc: '',
+    href: 'https://einargudni.com',
+    github: 'https://github.com/einargudnig/einargudni.com',
+    tech1: 'Next.js',
+    tech2: 'Tailwind CSS',
+    tech3: 'mdx',
+  },
+  {
     title: 'Course grader',
     description: `Web application built to allow students from the computer science department from the university of Iceland to review and grade their classes.`,
     imgSrc: '',
@@ -58,16 +78,6 @@ const projectsData = [
     tech1: 'NodeJS',
     tech2: 'PostgresQL',
     tech3: 'JWT',
-  },
-  {
-    title: 'Personal Website 4.0',
-    description: `Current version. Improved the blog a lot, rebuilt with tailwind`,
-    imgSrc: '',
-    href: 'https://einargudni.com',
-    github: 'https://github.com/einargudnig/next-tailwind-blog',
-    tech1: 'Next',
-    tech2: 'Markdown',
-    tech3: 'TailwindCSS',
   },
   {
     title: 'Personal Website 3.0',
