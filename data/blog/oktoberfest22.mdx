@@ -1,0 +1,243 @@
+---
+title: 'Oktoberfest22'
+date: 2022-10-01T09:00:25Z
+lastmod:
+tags: ['beer', 'nextjs', typescript', 'supabase', 'tailwind', 'bingo']
+draft: false
+summary: I made a drink counter and a bingo for a friends trip to Oktoberfest
+layout: PostLayout
+---
+
+# What?
+
+This is a project that has no purpose other than being for fun. A small little nextjs website connected to a database. For a group of friends going to Oktoberfest in Munich. This website lets us count our drinks, and count how many bratwursts we eat as long as including a 4x4 bingo card.
+
+However, I got the idea to build it late so I had to see what I could find to help me make this work in a short time. Below you can see some of the things I found that helped me make this ready in a shorter time.
+
+<Image
+  alt="second brain"
+  src="/static/images/blog/oktoberfest/oktoberfestFrame.png"
+  width={650}
+  height={400}
+/>
+
+# Stack
+
+<Image
+  alt="second brain"
+  src="/static/images/blog/oktoberfest/stack.png"
+  width={750}
+  height={750}
+/>
+
+## NextJs + TailwindCSS
+
+It is so easy to spin up a project while using NextJs and TailwindCSS. It has become my go-to stack since I’m most comfortable with these two.
+I was thinking about trying out something new, using [bun](https://bun.sh/) or [remix](https://remix.run/) but since I was focusing on getting better at TypeScript I felt like that was enough this time.
+
+## TypeScript
+
+I’m trying to get better at TypeScript. That’s also a reason why I wanted to do this project, I’ve been taking some courses but the best way to learn is to use the technology in a real project, i.e. not in a course. I
+
+## Supabase
+
+I needed a database to store the values since this site was going to be accessed on multiple devices.
+I heard about Supabase on fireship's youtube channel a couple of months ago and thought this would be a great time to try it out.
+
+It was super easy to set up a database and start to play around with it.
+Here are some examples I used to get more comfortable using supabase:
+
+- https://supabase.com/docs/guides/with-nextjs
+- https://supabase.com/docs/guides/with-nextjs
+- https://supabase.com/docs/guides/database/connecting-to-postgres
+
+I made two tables, one for drinks and another one for miscellaneous things. This made is easier to play around, I also duplicated the react-supabase hooks and connected them to the two different tables.
+
+I wanted to change this back to a single table and only have one instance of the react-supabase hooks. But since the time before Oktoberfest was tight I put it close to the bottom of priority do. It works, so I’ll probably leave it like how it is.
+
+However, I suspect I don’t have to change the code much to make this work. In the react-supabase hooks I’m selecting what columns to affect and I could pass different type of columns to the hook if I only had one table. That table would, of course, have to have more columns that would identify either the added drinks to the table or the other stuff added.
+
+### react-supabase
+
+It’s not necessary to use this npm package to use supabase. But, it made things rather simple, see more in the [documentation](https://react-supabase.vercel.app/)
+
+I used the `useInsert` and the `useRealtime` hooks.
+
+It was surprising how little code I used to make this work with the database. For both table, I used around 20 lines of code
+
+```tsx
+import { useInsert, useRealTime } from 'react-supabase'
+
+const TABLE_NAME = 'drinks'
+
+export function useDrinkClicks() {
+  const [{ data, error }] = useRealtime(TABLE_NAME, {
+    select: {
+      columns: 'id, type',
+    },
+  })
+
+  if (error) {
+    console.error(error)
+  }
+
+  return data
+}
+
+export function useInsertDrinksClicks() {
+  // eslint-disable-next-line no-unused-vars
+  const [_data, execute] = useInsert(TABLE_NAME)
+
+  return execute
+}
+```
+
+- The `useRealtime` hook does return an array of everything in the database selected by these two columns.
+  I could’ve filtered out types of buttons there (`type: beer`) and only returned that to the counter. But Since
+
+- The `useInsertDrinksClicks` hook does simply insert the type to the table we mention above.
+
+By using those two simple hooks I could in a rather easy way return an array of everything in the table and again add to the same table.
+
+### react-use
+
+I used the `usePrevious` hook from [react-use](https://github.com/streamich/react-use#readme), it’s a custom hook that returns the previous state.
+This hook is used to compare the current state to the previous one, and if they do not match. A react-spring animation will fire when the count updates.
+
+# Counter
+
+This is a super simple Realtime counter. It’s inspired by this [example](https://pablopunk.com/posts/how-to-create-a-real-time-ui-with-nextjs-and-supabase)
+
+It uses two hooks from the react-supabase and one hook from react-use npm package. These hooks simplify the process of inserting to the database quite a lot. It does leave some things out, but they did great for this project.
+
+The first thing to do is to make the buttons and set the type of them and the label. The type is then inserted to the supabase database alongside a uuid
+
+```tsx
+const drinkButtons = [
+  {
+    type: 'beer',
+    label: '🍻',
+  },
+  {
+    type: 'wine',
+    label: '🍾',
+  },
+  {
+    type: 'cocktail',
+    label: '🍹',
+  },
+  {
+    type: 'shot',
+    label: '🥃',
+  },
+]
+```
+
+The logic for the buttons is way more simpler than I though it would be when I started.
+There is also some logic for the react-spring package that was used to animate the buttons.
+
+```tsx
+//
+const clicks = useDrinksClicks()
+const prevClicks = usePrevious()
+const insertClicks = useInsertDrinkClicks()
+const clickedButton = (type: string) => () => insertClicks({ type })
+
+
+//
+{drinksButton.map((button) => {
+	const clicksForType = clicks?.filter((c) => c.type === button.type).length || 0
+	const prevClicksForType = prevClicks?.filter((c) => c.type === button.type).length || 0
+
+	// This next code is for the animation of the buttons on change, because animations are cool
+	const [styles, api] = useSpring(() => ({
+	...from,
+	config: {
+		duration: 2000,
+	},
+	}))
+
+    // this is also for the animation
+	if (clicksForType !== prevClicksForType) {
+		api.start({ to })
+		setTimeout(() => api.start({ to: { ..from } }), 400)
+	}
+
+	return (
+		<animated.button
+			style={styles} // config for the color changes on animation
+			onClick={clickedButton(button.type)}
+			key={button.type}
+			className="text-4xl m-2 p-2 transition border rounded-lg shadow-md hover:scale-110 hover:border-accent focus:outline-none"
+          >
+			<span>{clicksForType}</span> {/* the number of drinks in the database with this type */}
+			<span>{button.label}</span> {/* the label we defined at the top of this snipped */}
+		</animated.button>
+	)
+})}
+```
+
+The logic is simply displaying the length for the array of a certain type in the database, we use the `clicksForType` variable to filter everything from the realTime database (by using `const clicks = UseDrinksClicks`). By filtering using the types we made above.
+
+We then use the onClick handler to use the `clickedButton(button.type)` to insert the new value into our database.
+What the `clickedButton` does is only using the `useInsertDrinkClicks` to insert a uuid and a type to the bottom of our table.
+
+<Image
+  alt="second brain"
+  src="/static/images/blog/oktoberfest/counter.png"
+  width={600}
+  height={500}
+/>
+
+# Bingo
+
+## First iteration
+
+Made up around 20 strings, similar to: “Everyone starts to sing”(something that could logically happen on Oktoberfest). I randomized the array and then took 16 of the strings and made a bingo tile
+
+## Second iteration
+
+On the day before we went to the venue, I remembered that I had not made any attempt at all to store the value of each card in any kind of storage, so the checked values would keep between the user closing the webpage.
+Ástráður was a real champ and was not long to hack a nice logic for this to work. It was not the best solution and had some bugs, but in the end, it worked well enough.
+
+We also added extra buttons where you could randomize your tiles again when you win. Before this did automatically happen on refresh, but that’s exactly **not** how we wanted it to be.
+
+<Image alt="second brain" src="/static/images/blog/oktoberfest/4by4.png" width={450} height={750} />
+
+## Third iteration
+
+This was done between days on oktoberfest itself. We wanted to add more tiles to the card it expanded from 4x4 to 4x6 card.
+
+I forgot yo update the logic so a user could have bingo for every four diagonal in a row, when in fact a user shouldn’t be able to get a diagonal bingo when the card is 4x6. It was not a major issue 🤷
+
+<Image alt="second brain" src="/static/images/blog/oktoberfest/4by6.png" width={450} height={750} />
+
+# Extra touches
+
+### Sound
+
+I had the best time playing around with Josh W. Comeu `useSound` hook.
+I recorded a snipped of google translate saying Prost and added it to a button on the home page. This hook has a setPlayback hook so every time a user pressed the next play of the Prost would be a tiny bit sped up compared to the one before.
+There is more info on this useSound hook in its [github repo](https://github.com/joshwcomeau/use-sound)
+
+### Confetti
+
+I found this cool [npm package](https://www.npmjs.com/package/react-canvas-confetti) that displayed confetti when a button is pressed. I added it to my project and made so that when a user wins bingo his screen gets confetti fireworks
+
+<Image
+  alt="second brain"
+  src="/static/images/blog/oktoberfest/confetti.png"
+  width={450}
+  height={750}
+/>
+
+## What next?
+
+I would like to make some time in the near future to update this a tiny bit.
+I would like to make the opportunity for people to add new bingo tiles without having to open the code.
+
+It would also be cool to have independent drinks counter for each user, that would be connected to user authentication.
+
+Since this is not a top priority of mine I’ll see when I manage to do it, maybe it will be soon or in a couple of months. Who knows..
+
+The code here is not complete, so check it out in the [github repo](https://github.com/einargudnig/oktoberfest22) if you want to fork it and play around with it.

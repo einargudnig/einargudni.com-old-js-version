@@ -23,7 +23,7 @@ const ScrollTopAndComment = () => {
   }
   return (
     <div className="fixed flex-col hidden gap-3 right-8 bottom-8 md:flex">
-      <button
+      {/* <button
         aria-label="Scroll To Comment"
         type="button"
         onClick={handleScrollToComment}
@@ -37,7 +37,7 @@ const ScrollTopAndComment = () => {
             clipRule="evenodd"
           />
         </svg>
-      </button>
+      </button> */}
       <button
         aria-label="Scroll To Top"
         type="button"
