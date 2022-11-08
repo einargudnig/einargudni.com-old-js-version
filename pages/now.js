@@ -13,7 +13,7 @@ export default function Now() {
       <div>
         <div className="my-2">
           <h3>Where am I and what am I doing?</h3>
-          <div className="mt-3 mb-4 text-sm">Last updated: 21 October 2022</div>
+          <div className="mt-3 mb-4 text-sm">Last updated: 9 November 2022</div>
         </div>
         {/* Misc */}
         <div className="flex justify-between">
@@ -25,15 +25,15 @@ export default function Now() {
 
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-2/5">
             <span className="font-semibold">Reading:</span>{' '}
-            <span>The Idiot Brain - Dean Burnett</span>
+            <span>Coding career Handbook - Shawn "@swyx"</span>
             <br />
-            <span className="font-semibold">Podcast:</span> <span>The Kvowledge Project</span>
+            <span className="font-semibold">Podcast:</span> <span>Huberman Lab</span>
           </div>
 
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
             <span className="font-semibold">Eating:</span> <span>N/A</span>
             <br />
-            <span className="font-semibold">Drinking:</span> <span>Pre-workout</span>
+            <span className="font-semibold">Drinking:</span> <span>Coffee</span>
           </div>
         </div>
         {/* Work */}
@@ -64,9 +64,10 @@ export default function Now() {
           </p>
           <br />
           <p>
-            I'm almost finished with updating our data to match our new data structure. This had a
-            lot of tinkering and updating data. This is also a step towards making our billing
-            system better. It works, but it's not very user friendly.
+            I'm working on couple of tasks where we are trying to improve how we handle different
+            active days for companies. This means we are changing our handling from the backend to
+            the front end. This gives us more flexibility and opens up new possibilities for the
+            future.
           </p>
           <br />
           <p>
@@ -82,6 +83,27 @@ export default function Now() {
           <p>
             I like the execute programming method of courses since they use spaced-repition. I
             believe that is on of the best way to learn.
+          </p>
+          <br />
+          <p>
+            I recently started working as a contractor for{' '}
+            <Link
+              href={'https://gigover.com'}
+              className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
+            >
+              GigOver{' '}
+            </Link>
+          </p>
+          <br />
+          <p>
+            It's an interesting project aimed to help construction workers be more on top of thei
+            projects.
+          </p>
+          <br />
+          <p>
+            It's built in TypeScript, React, chakra-ui and react-query. I'm working on the frontend
+            part of the project. They do also have an app built in Flutter. I don't have any
+            experience with Flutter, but it would be fun to get experience and learn something new.
           </p>
         </div>
         <div className="font-medium text-2xl justify-center dark:text-gray-600 text-gray-200 text-center">
@@ -114,8 +136,11 @@ export default function Now() {
           </p>
           <br />
           <p>
-            I've been spending some time updating my Obsidian vault. I feel like my system helps me
-            be more productive. I'll share it with you soon.
+            I'm thinking about if I should start to re-write my blog to TypeScript. Like I mentioned
+            I want to improve my TypeScript skill, so a real deliberate practice will help greatly.
+            It will depend on what time I have. Since I started working as a contractor I have less
+            extra time. But it would be a good project to work on it over longer time-period. Don't
+            understimate the work done in small chunks but over long time.
           </p>
           <br />
         </div>

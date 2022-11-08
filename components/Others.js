@@ -1,7 +1,6 @@
 import { useTechnologyClicks, useInsertTechnologyClicks } from '@/lib/utils/usesCount'
 import { usePrevious } from 'react-use'
-import siteMetadata from '@/data/siteMetadata'
-import SocialIcon from './social-icons'
+import Image from './Image'
 
 const other = [
   {
@@ -11,7 +10,7 @@ const other = [
     button: 'I use this!',
     label: 'Aeropress',
     link: '',
-    icon: <SocialIcon kind="twitter" href={siteMetadata.twitter} size="10" />,
+    image: '/static/images/uses/aerorpress.jpeg',
   },
   {
     type: 'timemore',
@@ -19,7 +18,7 @@ const other = [
     button: 'I use this!',
     label: 'Timemore C2 Grinder',
     link: '',
-    icon: <SocialIcon kind="twitter" href={siteMetadata.twitter} size="10" />,
+    image: '/static/images/uses/timemore.webp',
   },
 ]
 
@@ -40,7 +39,15 @@ export const Other = () => {
           return (
             <>
               <div className="flex">
-                <div className="m-2">{item.icon}</div>
+                <div className="m-2">
+                  <Image
+                    src={item.image}
+                    alt="vsCode"
+                    width="40px"
+                    height="40px"
+                    className="w-24 h-24"
+                  />
+                </div>
                 <div className="w-full">
                   <div className="flex justify-between">
                     <div className="flex-col">

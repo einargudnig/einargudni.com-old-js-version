@@ -1,5 +1,7 @@
 import { useTechnologyClicks, useInsertTechnologyClicks } from '@/lib/utils/usesCount'
 import { usePrevious } from 'react-use'
+import { animated, useSpring } from 'react-spring'
+import { FunctionComponent } from 'react'
 import Image from './Image'
 // import
 
@@ -127,7 +129,17 @@ const software = [
   },
 ]
 
-export const Software = () => {
+const from = {
+  backgroundColor: '#ffff',
+  color: '#000',
+}
+
+const to = {
+  backgroundColor: '#000',
+  color: '#ffff',
+}
+
+export function Software() {
   const data = useTechnologyClicks()
   const prevData = usePrevious(data)
   const insertData = useInsertTechnologyClicks()
@@ -140,6 +152,19 @@ export const Software = () => {
         {software.map((item) => {
           const countForType = data?.filter((d) => d.type === item.type).length || 0
           const prevCountForType = prevData?.filter((d) => d.type === item.type).length || 0
+          const clickedButton = () => insertData([{ type: item.type }])
+
+          // const [syles, api] = useSpring(() => ({
+          //   ...from,
+          //   config: {
+          //     duration: 200,
+          //   },
+          // }))
+
+          // if (countForType !== prevCountForType) {
+          //   api.start({ to })
+          //   setTimeout(() => api.start({ to: { ...from } }), 400)
+          // }
 
           return (
             <>
@@ -165,13 +190,14 @@ export const Software = () => {
                     </div>
                     <div className="flex items-center">
                       <span className="text-xl font-bold mx-3">{countForType}</span>
-                      <button
+                      <animated.button
+                        // styles={syles}
                         onClick={insertButton(item.type)}
                         key={item.type}
                         className="m-2 p-2 transition border rounded-lg shadow-md w-24"
                       >
                         <span>{item.button}</span>
-                      </button>
+                      </animated.button>
                     </div>
                   </div>
                 </div>
