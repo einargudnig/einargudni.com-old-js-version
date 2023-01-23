@@ -1,9 +1,9 @@
-export default function Notes() {
+export default function Learnings() {
   return (
     <div>
-      <div className="text-lg font font-semibold">
-        <span>This is small list of what I wrote about this last week.</span> <br />
-        <span>It comes from the last modified files in my Obsidian Vault.</span>
+      <div>
+        <h2 className="text-xl font-semibold">Learnings journal</h2>
+        <span className="font-semibold">Doings and learnings.</span> <br />
       </div>
       <div className="mt-3 mb-3">
         <h5>15 - 21 August</h5>

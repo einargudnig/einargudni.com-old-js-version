@@ -1,0 +1,320 @@
+---
+title: 'Building a new system in Obsidian'
+date: 2022-12-05T08:30:25Z
+lastmod:
+tags: ['obsidian', 'systems', 'markdown', 'spaced-repetition']
+draft: false
+summary: I made a new system in Obsidian
+layout: PostSimple
+---
+
+# Old Vault
+
+Remember I wrote these two posts about Obsidian? One of them was about Obsidian and the other one about my vault and how I use Obsidian.
+I still use Obsidian and I've only come to like it even more then I did.
+
+I did start a new vault since I felt that I was experiencing some problems with mine. These problems were not majir,
+but they held me back to truly use Obsidian to my advantage.
+
+<Image alt="My graph" src="/static/images/blog/obsidian/graph.png" width={650} height={400} />
+
+**Why I wanted to start over**
+
+My old Vault was great, I had a lot of content in it, but, over time I recognized two big thing I felt I could do better.
+Firstly, I had massively got stuck in the [collectors fallacy](https://zettelkasten.de/posts/collectors-fallacy/).
+And I tried to adopt a structure from someone else without understanding the system well enough.
+
+**What could I do better**
+
+Number one and two for me was to restart and build up a system I knew would suit myself and my daily life.
+Not that this structure I started with was bad, just that it’s not a good way to learn how to use other systems.
+It’s way better to start just with the bare basics, and gradually add what I feel like I want to add.
+
+Remember Gall's law:
+
+> All complex systems that work evolved from simpler systems that worked. [And conversly...]
+> A complex system designed from scratch never works and cannot be patched up to make it work.
+
+I started with a complex system, and never managed to use it to my advantage. I think that is a port of why I got stuck in the collectors fallacy.
+
+# New Vault
+
+I have my glass of red wine and I'm ready to tell you more about my new vault, I say a new vault, but it's not really new.
+I have been using it for 448 days.
+
+Here is a table of content for you to navigate the post if you want.
+
+<TOCInline toc={props.toc} exclude="Overview" toHeading={2} />
+
+I started a new vault with nothing, no community plugins, just the built-in ones.
+Slowly I figured out what plugins I might want to use and added them by need.
+I will try to list out the plugins I use when I talk about the use cases connected to them below.
+
+I could say that my vault is mainly a task-manager and a personal knowledge database for myself.
+I’m slowly improving and adding functionality to my vault, this summer I added a person folder for me to help my remember peoples name, their profession (I’m not good with names), and making connection to athor people.
+
+It’s exciting to follow along the Obsidian community and see the different way people use their vaults.
+
+> The purpose for this vault is to help my connect my knowledge together and improve it.
+> I want to build systems that help my play long-term games. This system helps my do daily tasks and minimizes the mental load of always trying to remember everything.
+> There are only so many things we can keep in our mind at any moment.
+
+# Systems
+
+<Image alt="My graph" src="/static/images/blog/obsidian/system.png" width={750} height={500} />
+
+This is the homepage of my system!
+A short summary of it:
+
+- top left corner: grap of my Vault
+- bottom left: folders for my notes and search.
+  - the notes under the folders are notes that are recently added
+- top right: calendar
+- middle right: local graph(for the open note) OR backlinks for open Note
+- bottom right: a pinned note containing different callouts.
+
+Here below are the various parts of the system I've implemented in my vault.
+
+Note that I use templates for a lot of this, you can leverage templates to do so much dirty work for you in Obsidian.
+Here you can read more about [Obsidian templates](https://help.obsidian.md/Plugins/Templates).
+
+## Daily notes
+
+I use my daily notes a lot!
+One of the first thing I did in my new vault was to set up a template for my daily notes.
+
+My daily note is my funnel to my personal knowledge database.
+I capture almost everything in my daily note. From the daily note the content will either end up in the slip-box (more on that later) the reference folder or I will not 'archive it'.
+
+I use raycast on my macbook pro as a launcher and some genius made an Obsidian daily note shortcut.
+It's super easy for me to press Command + Option + T and my daily notes open.
+
+Obsidian also has a mobile app, it is perfect for the quick capture when you have made some updgrades to it. I sinc my vault to my iCloud (there are more ways to sync your vault.) so I have the same vault in my iPhone as I have in my macbook.
+I used the button plugin to add a custom button to my daily note.
+
+These two methods of quick capture have lowered the “barrier of entry” for me to dump everything to my vault.
+Since I implemented this I spend more time adding content to my slip-box and making new connections.
+
+Everything that goes to my daily notes could end in my vault! Not all of it does, I use the daily notes to think, so sometimes it's just some nonsense about my current work project.
+I add a tag to to the things the daily note I think I would like to keep. I use the #collection tag to collect stuff, I have some more detailed part of this task such as #collection/read-list.  
+I’ll describe how I use this tag in the weekly notes section below.
+
+<Image alt="My graph" src="/static/images/blog/obsidian/daily-note.png" width={350} height={400} />
+
+Here above is a screenshot of my daily note for today.
+As you can see I don't have anything under the **Ideas:** which means I haven't captured anything for today yet.
+
+**Plugins & template:**
+
+- Daily notes plugin
+- Templater
+- Template (daily note)
+- dataview
+- button (mobile)
+- quick capture (mobile)
+
+## Weekly notes
+
+In my weekly notes I add all of my tasks, these are the tasks I want to complete in this week.
+Most often these are long-term minded tasks that I try to do on most weeks (training, mobility, reading, etc) combined with more ad-hoc style tasks that I add (pick up this, order haircut, clean apartment, etc).
+
+I recently added more personal tasks to the bottom of my weekly note, these tasks I dearly want to complete some time during the week but to be honest I've not been good enough at following through with some of them.
+This is thing I want to priroritize more in the upcoming future.
+
+Regarding my #collection tag earlier I've created a nice system for it in the bottom of my weekly note.
+I use the dataview plugin to show every note, in the last seven days, that does include the #collection tag.
+Before I added this it happened to often that I forgot that I had tagged things in my daily note.
+
+Towards the end of every week I try to go over these daily notes and work on adding this content with the tag to my vault.
+This dataview query is helpful and lets me easily see what I've tagged in the last seven days.
+
+You can see on these screenshots that my weekly notes contain a lot of tasks,
+I will go more into details regarding my tasks below.
+
+**Plugin & template:**
+
+- tasks
+- dataview
+- template (weekly note)
+- buttons
+
+## Monthly notes
+
+I guess you can see how I structure my vault, I have a monthly note where I link to the weeks that are in this month.
+I also try to count how many times I finish these personal tasks I set fer me for each week. It's easier to be honest when I see that I only complete them once or twice a month.
+Below that I have 5 short review questions in the monthly note. These are short answered questions that hlep me reflect on my month. It's easy to forget what one accomplishes, even the small wins.
+
+**Plugin & template:**
+
+- tasks
+- template (monthly note)
+
+## Tasks
+
+As of writing this I have 6855 tasks in my vault.
+
+I use the tasks plugin to make tasks in my weekly notes.
+
+Like I mentioned above I use dataview to show tasks in my daily notes.
+This is how tasks are shown in my daily notes.
+
+_DAILYNOTE TASK SCRRENSHOT_
+
+I have these simple dataview queries to only show them with regard to their due date.
+
+I've added a keyboard shortcut for both making tasks and completing them.
+Here you can see how the tasks plugin looks like when adding a task.
+**Add task SCREENSHJOT**
+
+These shortcuts are CMD + SHIFT + ENTER to make a new task and CMD + CONTROL + ENTER to complete a task.
+
+I'm well aware that I could use the task plugin in a more specific way, but I like to keep things simple.
+I could do recurring tasks for example, but by adding every task manually to my vault it makes me feel more in control.
+I almost use my weekly notes as much as I use my daily notes.
+
+**Plugin & template:**
+
+- tasks
+
+## Projects
+
+I recently started using this plugins for my bigger projects.
+It's nice to have a space where I can have good overview of my tasks.
+Each task gets a note dedictated to where I can store information and wanderings regarding said task. This has bee super helpful for me.
+I scribble down almost everything I'm wandering and thinking regarding these tasks, it has helped me to get quicker up to speed when I continue with task after I've put it on hold.
+
+I made a projects template that the Projects plugin **always** uses when I make new notes in the project folder,
+The different views are super nice here.
+
+_ProjectSCREENSHOT_
+
+I will make project about my blog and my side-projects. I have many notes in my vault regarding this, and this Project plugin helps me have a better overview.
+
+**Plugin & template:**
+
+- projects
+- template (project)
+
+## Spaced-repetition
+
+I read [this article](http://augmentingcognition.com/ltm.html) a while back and I think I installed Anki not even 5 minutes later.
+This is one of the biggest thing I’m trying to keep improving on daily bases. How would’ve thought that continously reveiwing things again and again would help you get better at them?🫢
+
+I mostly use spaced-repetition for general concepts and other things that help me, like keyboard shortcuts (lol)
+
+I set up Anki and use the Obisidan to Anki plugin to sync from my notes to Anki.
+
+I set up an anki hub note that connects all of my notes for each anki deck, I can leverage the Anki software for spaced repetition. I like this setup a lot, since it allows me to add to my anki decks straight from my vault.
+
+My main decks are about React, JavaScript and TypeScript. 🤓
+
+I could improve my usage of Anki with Obsidian, but I’ve at least started. This is one part of my system that I want to use more.
+
+The article I mentioned above is super good. Even though it's long I can’t recommend it enough!
+
+**Plugin & template:**
+
+- Obsidian to Anki
+
+## Time blocking
+
+I think this concept originates from Cal Newport’s book Deep Work.
+Here are articles about this concept
+
+- [time blocking](https://todoist.com/productivity-methods/time-blocking)
+- [more about time blocking](https://blog.rescuetime.com/time-blocking-101/)
+- there are plenty more articles about this concept.
+
+I use cron as a calendar and by using the full calendar plugin I have an access to a calendar in my Obsidian vault.
+
+What I like about Cron, and I like it a lot, is the ease of using keyboard shortcuts. It helps me be quicker to block my time -> Less friction, more likely to do it.
+
+I’ve connected and imported events from my personal gmail and my work calendar to Cron, so now I have them all at the same place, and it’s accible in the full calendar plugin in Obsidian, though I use the Cron app more, especially since they launched the iOS app.
+
+Here is a screenshot of my Cron calender from this week so you have an idea on how it goes.
+
+<Image alt="My graph" src="/static/images/blog/obsidian/cron.png" width={850} height={650} />
+
+Usually my time blocks are rather general, I have more details about those tasks in Asana (work tasks) and/or my weekly note.
+I try to block time for the general "theme" of that time, could be a project, or more shallow work like emails.
+
+As you can see on this screenshot I'm working on a big task for work, we are refactoring our react-router to integrate the version-6.4 changes.
+That does take some time, but it's a super fun and challenging task.
+
+I might have couple of invites to Cron, so if you would like to try it you can send me a email or DM on my socials.
+
+**Plugin & template:**
+
+- Full calendar
+
+## Shut down ritual
+
+Here are some articles regarding shutdown rituals:
+
+- [Cal newport](https://www.calnewport.com/blog/2009/06/08/drastically-reduce-stress-with-a-work-shutdown-ritual/)
+- [Timely](https://timelyapp.com/blog/workday-shutdown-ritual)
+
+In the end of every work day I take a quick tour and go over to see if missed some of this.
+
+- Finish tasks in Asana that I finished this day
+- Archive emails on Front that I can archive
+- Commit any updates to github I have uncommited
+- Finish tasks in Obsidian that I’ve finished.
+
+Of course I sometimes forget this and I don’t archive emails or complete task that I’m still working on, but most days I remember and It feels good to “close” these things of for the day.
+Maybe it’s only the placebo but I feel like I can start the day without the need to ‘de-clutter’.
+
+**Plugin & template:**
+
+- This is on my daily note template.
+
+## slip-box
+
+This is where I put all of my notes that I want to 'own'.
+
+This slip-box 'concept' I got from the book 'How to take smart notes'.
+I'm not going to much into details here, because I think there is not a correct way to do this. I like how I structure my slip-box, but I'm sure there are better ways to do it.
+I have these topic notes, that worrk like an entry point to a cretain topic. Here below is a list of my current topic notes.
+
+- 1 systems
+- 2 technology
+- 3 productivity
+- 4 psychology
+- 5 philosophy
+- 6 math
+- 7 physics
+- 8 biology
+- 9 chemistry
+- 10 ecenoomics
+- 11 personal finances
+- 12 health
+- 13 hobbies
+
+Every note in the slip-box is prefaced with the number of the topic it belongs to.
+There is no reason for any of these numbers, when I want to add a note to my slip-box and there is not a topic note already there, I just added next to the list.
+
+In each topic note I start to build on these prefixes. Which is nice but also a place I think I could improve on.
+For example, the technology topic note has a lot of links from it, and since I work as a software developers I'm constantly adding new notes to thes topic.
+This is the topic note for technology
+_technology topic note SCREENSHOT_
+
+The last note I added to my slip-box had this name: `2a2b9c1 - useState typescript`. You can see I've branched a long way out from the technology topic note with the prefix 2.
+This has pros and cons. I'm slowly building a model of my slip-box note and I can see how it grows. But I'm also not sure if I'm going to be able to find the notes I'm looking for. (Thank god for the search feature).
+To add, when I refrence a note in another note I simply have to do this [[2a2b9c1 - useState typescript]] but there is a neat trick I can use. [[2a2b9c1 - useState typescript|useState typescript]] displays the string after the pipe instead of the full name of the note. This is super nice when you have a long note name.
+
+# Conclusion
+
+So, this was quite long 😬
+It may looks like that I spend all of my day in Obisidan but that is not the reality.
+The more I use my system the more prolific I become. It's really the 'charm' of compounding that is building my vault.
+Some days I add more, others I don't add anything. I don't want to add stuff that I feel like I don't need.
+
+If you are interested in using Obsidian I encourage you to start small. Everything I use in my vault I slowly integrated and tried before I added it to my workflow. I'm also conscious and willing to remove parts of my system if I feel like it unnecessary.
+But note that this came on the back of my old vault not working well with me, so I'm deliberately being patient with my system. Not add everything I want.
+
+> The ultimate goal of any productivity system is to have a place where you put tasks and reminders safely so they won't be forgotten and done in time.
+> The core reason is that that's the best way to close off 'open loops' which are nagging sense you forgot something or the random task that will pop up at night before bed.
+> Those loops will constantly suck mental energy until you address them, and your brain will spend energy trying to remind you, often at the wrong time and space.
+
+I hope you guys enjoyed this post and that it was helpful in some way.
+If you have any questions don't hesitate to ask.
