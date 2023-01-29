@@ -56,28 +56,26 @@ export default function Now() {
           </p>
           <br />
           <p>
-            We've been spending a significant time and effort to make our internal tools better. We
-            are delivering around 7000 portions of food per week. Our daily operations team was in
-            need of better tools to help them manage the daily operations. This will also help us
-            re-phrasing some issues we've bee dealing with before. Now the operations team can solve
-            some problems that previously they needed the software team help.
+            We've been spending are getting ready to launch in Copenhagen 🥳. We have great people
+            on the ground setting things up and getting ready. It's so much fun to take part in
+            something like this. I'm really excited to see how it goes.
           </p>
           <br />
           <p>
-            I'm working on couple of tasks where we are trying to improve how we handle different
-            active days for companies. This means we are changing our handling from the backend to
-            the front end. This gives us more flexibility and opens up new possibilities for the
-            future.
+            The biggest task I'm working on is re-writing our router. We use react-router like so
+            many other websites, they release and interesting updates a while ago. This project is a
+            big one, since it touches on a lot of things in our codebase. I think the new mental
+            model with the actions and loader is way more clearer. The biggest pros in thise update
+            is that it's going to remove some of the problems we have been dealing with.
           </p>
           <br />
           <p>
-            I finished the TypeScript basics course and I've started on the Everyday TypeScript
-            course on{' '}
+            You can read more about this new version of react-router here{' '}
             <Link
-              href={'https://www.executeprogram.com/courses'}
+              href={'https://reactrouter.com/en/main/start/overview'}
               className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
             >
-              Execute Programming.
+              react router version 6.4.
             </Link>
           </p>
           <p>

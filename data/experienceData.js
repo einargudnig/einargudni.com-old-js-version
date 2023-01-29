@@ -9,7 +9,18 @@ const experienceData = [
     text2:
       'Work with a variety of different technologies, such as, JavaScript, React, Tailwind CSS, React-Query, Xstate, Dynamo DB, AWS services to name a few',
     text3:
-      'Handle a diverse spectrum of projects on a daily basis, such as helping with daily operations, customer service and maintaining the websites',
+      'Helped growing the company from delivering around 2000 orders per week in one location to delivering over 8000 orders and expanding abroad.',
+  },
+  {
+    title: 'Software Developer',
+    company: 'GigOver',
+    location: 'Reykjavik, Iceland',
+    range: 'October 2022 - present',
+    url: 'https://gigover.com',
+    text1:
+      'Frontend developer for a young startup aiming to improve project management in the construction industry',
+    text2: 'Writing code in TypeScript, React, Chakra UI, React-Query, Firebase',
+    text3: 'Workin on adding new features to the platform',
   },
   {
     title: 'Software Developer',
