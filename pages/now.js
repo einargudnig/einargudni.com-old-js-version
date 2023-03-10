@@ -13,21 +13,20 @@ export default function Now() {
       <div>
         <div className="my-2">
           <h3>Where am I and what am I doing?</h3>
-          <div className="mt-3 mb-4 text-sm">Last updated: 9 November 2022</div>
+          <div className="mt-3 mb-4 text-sm">Last updated: 5 Mars 2023</div>
         </div>
         {/* Misc */}
         <div className="flex justify-between">
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
-            <span className="font-semibold">Location:</span> <span>Reykjavik,</span>
+            <span className="font-semibold">Location:</span> <span>Kastrup, Copenhagen,</span>
             <br />
-            <span className="font-semibold">Weather:</span> <span>4°C, sunny</span>
+            <span className="font-semibold">Weather:</span> <span>6°C, sunny</span>
           </div>
 
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-2/5">
-            <span className="font-semibold">Reading:</span>{' '}
-            <span>Coding career Handbook - Shawn "@swyx"</span>
+            <span className="font-semibold">Reading:</span> <span>Hyperfocus - Shawn "@swyx"</span>
             <br />
-            <span className="font-semibold">Podcast:</span> <span>Huberman Lab</span>
+            <span className="font-semibold">Podcast:</span> <span>Danny Miranda</span>
           </div>
 
           <div className="text-sm p-1 mt-2 mb-10 border border-gray-600 dark:border-gray-200 rounded-md w-1/4">
@@ -56,17 +55,27 @@ export default function Now() {
           </p>
           <br />
           <p>
-            We've been spending are getting ready to launch in Copenhagen 🥳. We have great people
-            on the ground setting things up and getting ready. It's so much fun to take part in
-            something like this. I'm really excited to see how it goes.
+            I spent this last three weeks to help make the{' '}
+            <Link
+              href={'https://tiffin.dk'}
+              className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
+            >
+              Tiffin
+            </Link>{' '}
+            project go live in Copenhagen. We did so many things over this last week to make our
+            systems ready. It's not perfect but we took the big step to start serving customers. So
+            if you'r company is in the need of a delicious and various lunch and you are in the
+            vicinity of Vesterbro reach out.🥳🥳🥳
           </p>
           <br />
           <p>
-            The biggest task I'm working on is re-writing our router. We use react-router like so
-            many other websites, they release and interesting updates a while ago. This project is a
-            big one, since it touches on a lot of things in our codebase. I think the new mental
-            model with the actions and loader is way more clearer. The biggest pros in thise update
-            is that it's going to remove some of the problems we have been dealing with.
+            Our new router is also live. Well, at least the first version of it. We decided to split
+            to few versions. The reason for that is that we are a small team of three developers, so
+            it is expensive time wise to keep tasks ongoing for too long. We also wanted to leverage
+            a part of this new router to improve the UX on our site for the Copenhagen launch. My
+            mental model regarding this new way of structuring router and the data fetching is
+            always getting clearer. I look forward to continuing to refactoring our code to to use
+            more of this new react-router version.
           </p>
           <br />
           <p>
@@ -77,10 +86,6 @@ export default function Now() {
             >
               react router version 6.4.
             </Link>
-          </p>
-          <p>
-            I like the execute programming method of courses since they use spaced-repition. I
-            believe that is on of the best way to learn.
           </p>
           <br />
           <p>
@@ -103,6 +108,12 @@ export default function Now() {
             part of the project. They do also have an app built in Flutter. I don't have any
             experience with Flutter, but it would be fun to get experience and learn something new.
           </p>
+          <br />
+          <p>
+            I'm not very experienced at writing code in TypeScript but, I want to improve so this is
+            a grate opportunity to get better. The guys who build the gigOver site did a good job
+            and I hope that I'm not ruining the codebase too much with my sloppy TS code 😬.
+          </p>
         </div>
         <div className="font-medium text-2xl justify-center dark:text-gray-600 text-gray-200 text-center">
           &#126;&#126;&#126;
@@ -110,7 +121,7 @@ export default function Now() {
 
         {/* Personal life */}
         <div className="pt-6">
-          <p>
+          {/* <p>
             I've been slowly building this website, trying to share interesting things with anyone
             who wants to read it.{' '}
             <Link
@@ -121,7 +132,7 @@ export default function Now() {
             </Link>{' '}
             article is a great reason to start your blog.
           </p>
-          <br />
+          <br /> */}
           <p>
             I published a short e-book about how to make LaTeX templates for your homework, aimed
             towards beginners.
@@ -132,14 +143,16 @@ export default function Now() {
               It's available here.
             </Link>
           </p>
-          <br />
-          <p>
-            I'm thinking about if I should start to re-write my blog to TypeScript. Like I mentioned
-            I want to improve my TypeScript skill, so a real deliberate practice will help greatly.
-            It will depend on what time I have. Since I started working as a contractor I have less
-            extra time. But it would be a good project to work on it over longer time-period. Don't
-            understimate the work done in small chunks but over long time.
-          </p>
+          <br />I wrote a post about the system I built in Obsidian. You can read it{' '}
+          <Link
+            href={'http://einargudni.com/my-books'}
+            className="special-underline hover:dark:text-gray-800 dark:text-gray-100 no-underline"
+          >
+            here.
+          </Link>{' '}
+          It's not the best system in the world but it helps me a lot to keep control over the
+          things I want to do. I recommend that you read it and try out Obsidian to make your own
+          system.
           <br />
         </div>
         <div className="mt-3 text-sm">
