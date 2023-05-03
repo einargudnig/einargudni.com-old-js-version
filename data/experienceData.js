@@ -5,14 +5,15 @@ const experienceData = [
     location: 'Reykjavik, Iceland',
     range: 'October 2020 - present',
     url: 'https://maul.is',
-    text1: 'Maintain and update software for food orders to multiple companies',
+    text1:
+      'Helped growing the company from delivering around 2000 orders per week in one Reykjavik to delivering over 8000 orders and expanding abroad.',
     text2:
       'Work with a variety of different technologies, such as, JavaScript, React, Tailwind CSS, React-Query, Xstate, Dynamo DB, AWS services to name a few',
     text3:
-      'Helped growing the company from delivering around 2000 orders per week in one location to delivering over 8000 orders and expanding abroad.',
+      'Maintain and build software for customers, restaurants and internal tools. Help to build systems to improve our operation.',
   },
   {
-    title: 'Software Developer',
+    title: 'Contractor',
     company: 'GigOver',
     location: 'Reykjavik, Iceland',
     range: 'October 2022 - present',
@@ -20,7 +21,7 @@ const experienceData = [
     text1:
       'Frontend developer for a young startup aiming to improve project management in the construction industry',
     text2: 'Writing code in TypeScript, React, Chakra UI, React-Query, Firebase',
-    text3: 'Workin on adding new features to the platform',
+    text3: 'building new features to the web application',
   },
   {
     title: 'Software Developer',
@@ -31,7 +32,7 @@ const experienceData = [
     text1:
       'Worked in a team of three developers to build and maintain a website for Reboot Hack 2020, the first ever student organized hackathon in Iceland',
     text2:
-      'Website held information about the event along side sign up form. Built with Node JS, React and Boostrap. PostgreSQL database',
+      'Website held information about the event along side sign up form. Built with Node JS, React and Bootstrap. PostgreSQL database',
     text3:
       'Helped doing multiple things for the event, such as, advertisement, organize IT and more',
   },

@@ -13,6 +13,7 @@ const Experience = ({ title, company, location, range, url, text1, text2, text3 
         </span>
       </div>
       <div>
+        <div className="p-1 font-mono text-gray-500 dark:text-gray-500 text-sm">{location}</div>
         <div className="p-1 font-mono text-gray-400 dark:text-gray-600 text-sm">{range}</div>
         <div className="p-2">
           <div className="flex flex-row ">
