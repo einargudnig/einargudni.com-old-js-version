@@ -12,7 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.1",
+    "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^1.0.5",
     "@mailchimp/mailchimp_marketing": "^3.0.58",
     "@supabase/supabase-js": "^1.35.7",
@@ -25,7 +25,7 @@
     "gray-matter": "^4.0.2",
     "image-size": "1.0.0",
     "isomorphic-fetch": "^3.0.0",
-    "kbar": "^0.1.0-beta.27",
+    "kbar": "^0.1.0-beta.40",
     "mdx-bundler": "^8.0.0",
     "next": "^12.3.4",
     "next-themes": "^0.0.14",
@@ -33,6 +33,7 @@
     "preact": "^10.6.2",
     "react": "18.0.0",
     "react-dom": "^18.0.0",
+    "react-hook-form": "^7.43.9",
     "react-parallax-tilt": "^1.5.28",
     "react-rough-notation": "^1.0.1",
     "react-spring": "^9.5.4",

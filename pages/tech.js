@@ -32,9 +32,8 @@ export default function Tech() {
         <div>
           <h3>List of people</h3>
           <div>
-            Container for list
-            <div className="m-2" border-2 border-white>
-              <ul className="">
+            <div className="m-2 ">
+              <ul className="h-64 overflow-y-auto">
                 {people.map((p) => {
                   return (
                     <li
