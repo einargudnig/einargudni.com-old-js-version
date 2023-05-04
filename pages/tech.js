@@ -32,7 +32,7 @@ export default function Tech() {
         <div>
           <h3>List of people</h3>
           <div>
-            <div className="m-2 ">
+            <div className="m-2">
               <ul className="h-64 overflow-y-auto">
                 {people.map((p) => {
                   return (
